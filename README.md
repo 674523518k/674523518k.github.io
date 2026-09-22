@@ -7,9 +7,10 @@ to preview it:
 python -m http.server 8000 --bind 127.0.0.1
 ```
 
-Open `http://127.0.0.1:8000` in a browser. The page reserves a teaser and six
-galleries with 4, 2, 2, 4, 4, and 4 clips. Two shared silent placeholder videos
-cover the reconstruction (12:11) and application/teaser (16:9) formats.
+Open `http://127.0.0.1:8000` in a browser. The page reserves a teaser, six
+galleries with 15, 4, 2, 4, 4, and 4 clips, and a baseline comparison video.
+Two shared silent placeholder videos cover reconstruction (12:11) and
+landscape (16:9) formats.
 
 ## Replacing media
 
@@ -17,11 +18,14 @@ cover the reconstruction (12:11) and application/teaser (16:9) formats.
    names such as `static-01.mp4` and `static-01.png`.
 2. In the matching thumbnail button in `index.html`, update `data-video`,
    `data-poster`, and its `aria-label`. Update its thumbnail
-   image's `src` and remove the placeholder wording.
+   image's `src` to a small `*-thumb.webp` file and remove the placeholder wording.
+   Keep the full-size poster in `data-poster`; the selector should use its separate
+   compressed thumbnail. Refresh the thumbnail's `?v=` value when replacing it.
 3. For a gallery's first clip, also update the initial video's poster and width/height
    attributes. JavaScript reads the selected button as the source of
    truth, so do not add a video `src` attribute.
-4. For the teaser, update its `data-src`, `poster`, and width/height.
+4. For the teaser and baseline comparison, update `data-src`, `poster`,
+   width/height, and the `aria-label` to remove placeholder wording.
 
 The page preserves each video's intrinsic dimensions. The reconstruction videos
 are already composed from three website exports placed side by side. Media
@@ -36,6 +40,9 @@ ffmpeg -i input.mp4 -map 0:v:0 -an -map_metadata -1 -map_chapters -1 \
   -movflags +faststart assets/media/static-01.mp4
 ffmpeg -i assets/media/static-01.mp4 -frames:v 1 -map_metadata -1 \
   assets/media/static-01.png
+ffmpeg -i assets/media/static-01.png -vf "scale=256:-2:flags=lanczos" \
+  -frames:v 1 -c:v libwebp -quality 78 -compression_level 6 -map_metadata -1 \
+  assets/media/static-01-thumb.webp
 ```
 
 Choose final encoding quality after checking small semantic labels. Aim for

@@ -1,48 +1,68 @@
 :root {
   color-scheme: light;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  color: #262a30;
+  color: #303740;
   background: #fff;
   font-synthesis: none;
-  --muted: #636b75;
-  --line: #e0e3e7;
-  --accent: #1772d0;
+  --heading: #202c3a;
+  --muted: #646d78;
+  --line: #e3e7ec;
+  --accent: #2468a0;
+  --accent-soft: #edf4fa;
 }
 
 * { box-sizing: border-box; }
-body { margin: 0; font-size: 17px; line-height: 1.65; }
-main { width: min(100% - 40px, 1000px); margin: 0 auto; padding: 44px 0 72px; }
+body { margin: 0; font-size: 17px; line-height: 1.75; }
+main { width: min(100% - 48px, 1000px); margin: 0 auto; padding: 56px 0 88px; }
 h1, h2, p, figure { margin: 0; }
-h1 { max-width: 940px; margin: 0 auto; font-size: clamp(26px, 3.6vw, 36px); font-weight: 500; line-height: 1.25; text-wrap: balance; }
-h2 { font-size: clamp(23px, 2.6vw, 27px); font-weight: 500; line-height: 1.3; text-align: center; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+h1 { max-width: 940px; margin: 0 auto; color: var(--heading); font-size: clamp(25px, 3vw, 34px); font-weight: 500; line-height: 1.3; letter-spacing: -0.025em; text-wrap: balance; }
+.project-name { display: block; margin-bottom: 16px; color: #000; font-size: clamp(40px, 5vw, 54px); font-weight: 700; line-height: 1.1; letter-spacing: -0.04em; }
+h2 { color: var(--heading); font-size: clamp(23px, 2.6vw, 27px); font-weight: 600; line-height: 1.35; letter-spacing: -0.02em; text-align: center; text-wrap: balance; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
 p + p { margin-top: 16px; }
 a { color: var(--accent); text-underline-offset: 3px; }
 a:focus-visible, button:focus-visible, video:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
-.page-header { text-align: center; margin-bottom: 30px; }
-.submission-label { margin-top: 16px; font-size: 15px; color: var(--muted); }
-.content-section { margin-top: 62px; }
-.summary { margin: 25px 0 0; padding: 20px 24px; border: 1px solid var(--line); border-radius: 8px; font-size: 20px; line-height: 1.55; }
-.abstract-copy { margin-top: 22px; }
-.summary, .abstract-copy, .method-caption { text-align: justify; }
-.method-link { display: block; margin: 24px 0; }
+.page-header { text-align: center; margin-bottom: 36px; }
+.submission-label { margin-top: 20px; font-size: 15px; letter-spacing: 0.02em; color: var(--muted); }
+.content-section { margin-top: 72px; }
+.content-section > figure[data-video-block] { margin-top: 28px; }
+.summary { margin: 28px 0 0; padding: 24px 28px; background: #f2f2f2; border: 1px solid #e7e7e7; border-radius: 12px; font-size: 19px; line-height: 1.7; }
+.summary strong { color: var(--heading); font-weight: 700; }
+.abstract-copy { margin-top: 26px; }
+.summary, .abstract-copy, .method-caption, .visualization-caption { text-align: justify; hyphens: auto; overflow-wrap: break-word; }
+.method-link { display: block; margin: 28px 0; border-radius: 4px; }
 .method-image { display: block; width: 100%; height: auto; }
 .method-caption { margin: 0; }
-.thumbnails { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin: 24px 0 20px; }
-.thumbnail { font: inherit; font-size: 12px; line-height: 1.4; color: var(--muted); background: #fff; border: 2px solid var(--line); border-radius: 7px; padding: 4px; cursor: pointer; min-width: 74px; }
-.thumbnail img { display: block; width: 64px; height: 58px; object-fit: cover; object-position: center; background: #f5f6f7; border-radius: 3px; }
-.thumbnail:hover { border-color: #91b9df; }
-.thumbnail.is-selected, .thumbnail[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); }
-video { display: block; width: 100%; height: auto; object-fit: contain; background: #f5f6f7; border: 1px solid var(--line); border-radius: 8px; }
-.video-error { margin-top: 10px; font-size: 14px; text-align: center; color: #8a3d26; }
+.visualization-caption { margin-top: 18px; }
+.thumbnails { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin: 28px 0 24px; }
+.thumbnail { font: inherit; color: var(--muted); background: #fff; border: 2px solid var(--line); border-radius: 10px; padding: 4px; cursor: pointer; min-width: 92px; }
+.thumbnail img { display: block; width: 80px; height: 68px; object-fit: cover; object-position: center; background: #f5f6f7; border-radius: 5px; }
+.thumbnail.is-selected, .thumbnail[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); box-shadow: 0 0 0 3px var(--accent-soft); }
+video { display: block; width: 100%; height: auto; object-fit: contain; background: #f5f6f7; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 3px 6px rgb(24 39 57 / 3%), 0 12px 28px rgb(24 39 57 / 5%); }
+.video-error { margin-top: 12px; font-size: 14px; text-align: center; color: #8a3d26; }
 [hidden] { display: none !important; }
-noscript p { padding: 14px; margin-bottom: 24px; background: #f5f6f7; }
+noscript p { padding: 16px; margin-bottom: 24px; background: #f5f6f7; border-radius: 8px; }
+
+@media (hover: hover) {
+  .thumbnail:hover { border-color: #7a9fbe; background: #f7f9fc; }
+  .thumbnail.is-selected:hover { border-color: var(--accent); background: var(--accent-soft); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .thumbnail { transition: border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease; }
+}
 
 @media (max-width: 600px) {
   body { font-size: 16px; }
-  main { width: calc(100% - 32px); padding-top: 28px; padding-bottom: 40px; }
-  .content-section { margin-top: 42px; }
-  .summary { padding: 16px; font-size: 18px; }
-  .thumbnails { gap: 10px; }
-  .thumbnail { min-width: 64px; }
-  .thumbnail img { width: 54px; height: 50px; }
+  main { width: calc(100% - 32px); padding-top: 32px; padding-bottom: 48px; }
+  .project-name { margin-bottom: 12px; }
+  .page-header { margin-bottom: 28px; }
+  .submission-label { margin-top: 16px; }
+  .content-section { margin-top: 48px; }
+  h2 { padding-bottom: 14px; }
+  .summary { margin-top: 22px; padding: 18px; font-size: 18px; }
+  .thumbnails { gap: 8px; margin: 24px 0 20px; }
+  .thumbnail { min-width: 66px; border-radius: 8px; }
+  .thumbnail img { width: 54px; height: 50px; border-radius: 4px; }
+  .visualization-caption { margin-top: 16px; }
+  video { border-radius: 10px; }
 }
