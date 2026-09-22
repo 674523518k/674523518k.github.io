@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Anonymous supplementary website for LucidLyra: generative 3D reconstruction and scene understanding.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>LucidLyra: Feed-Forward Generative 3D Scene Reconstruction and Understanding via Multi-Teacher Distillation</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/site.js" defer></script>
+</head>
+<body>
+  <main>
+    <header class="page-header">
+      <h1>LucidLyra: Feed-Forward Generative 3D Scene Reconstruction and Understanding via Multi-Teacher Distillation</h1>
+      <p class="submission-label">Anonymous submission</p>
+    </header>
+    <noscript><p>Enable JavaScript to play the videos and browse gallery examples. The abstract and method remain available below.</p></noscript>
+    <figure data-video-block>
+      <video id="teaser-video" data-player data-src="assets/media/placeholder-landscape.mp4" poster="assets/media/placeholder-landscape.png" width="960" height="540" controls muted loop playsinline preload="none" aria-label="LucidLyra teaser">
+        Your browser does not support HTML video.
+      </video>
+      <p class="video-error" data-video-error role="status" hidden></p>
+    </figure>
+    <p class="summary">LucidLyra turns generative video latents into 3D scenes with appearance, open-vocabulary semantics, and object identity, with an extension to dynamic scenes.</p>
+
+    <section class="content-section" aria-labelledby="abstract-title">
+      <h2 id="abstract-title">Abstract</h2>
+      <p class="abstract-copy">We present LucidLyra, a framework that makes generatively reconstructed 3D scenes directly queryable in a feed-forward manner from video latents. While generative 3D reconstruction can synthesize virtual environments from a single image beyond the observed view, downstream applications in robotics and physical AI require more than geometry and appearance: scenes must also represent semantics and object identity. Existing 3D understanding approaches, however, require captured multi-view scenes, have limited generalization capabilities, or rely on expensive per-scene optimization. To bridge this gap, our method distills complementary knowledge from a camera-controlled video diffusion model and frozen 2D vision foundation models into 3D Gaussians that jointly encode geometry, appearance, open-vocabulary semantics, and class-agnostic instance cues. The resulting scenes support novel-view rendering, language queries, and object grouping without per-scene optimization at test time, while training requires neither manual 3D annotations nor captured multi-view datasets. Furthermore, our latent formulation naturally extends to monocular video, reconstructing structured dynamic 3D scenes across time. Our method outperforms baselines combining state-of-the-art 3DGS segmentation approaches with generative 3D scene reconstruction across diverse evaluation domains, without compromising reconstruction quality. By turning renderable but unstructured outputs into queryable 3D worlds, LucidLyra enables downstream applications including 3D scene editing, asset extraction, and robotic simulation.</p>
+    </section>
+
+    <section class="content-section" aria-labelledby="method-title">
+      <h2 id="method-title">Method</h2>
+      <a class="method-link" href="assets/media/method.png?v=2ec277c333" aria-label="View the method diagram at full resolution">
+        <img class="method-image" src="assets/media/method.png?v=2ec277c333" width="2400" height="883" loading="lazy" decoding="async" alt="LucidLyra framework: a frozen camera-controlled video model and 2D teachers supervise a Gaussian decoder that predicts geometry, appearance, semantic features, and instance features.">
+      </a>
+      <p class="method-caption">A frozen camera-controlled video model produces multi-view latents, while its RGB decoder and frozen 2D foundation models provide reconstruction, semantic, and instance targets. We distill these targets into a feed-forward Gaussian decoder that jointly predicts appearance, geometry, and scene understanding. Time conditioning extends the same formulation to dynamic scenes.</p>
+    </section>
+
+
+    <section id="static" class="content-section" data-gallery aria-labelledby="static-title">
+      <h2 id="static-title">Static 3D Reconstruction and Understanding</h2>
+      <div class="thumbnails" role="group" aria-label="Static 3D Reconstruction and Understanding examples">
+        <button type="button" class="thumbnail is-selected" data-video="assets/media/placeholder-reconstruction.mp4" data-poster="assets/media/placeholder-reconstruction.png" aria-pressed="true" aria-controls="static-video" aria-label="Static 3D, example 1, placeholder">
+          <img src="assets/media/placeholder-reconstruction.png" alt="" width="64" height="58" loading="lazy">
+        </button>
+        <button type="button" class="thumbnail" data-video="assets/media/placeholder-reconstruction.mp4" data-poster="assets/media/placeholder-reconstruction.png" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, example 2, placeholder">
+          <img src="assets/media/placeholder-reconstruction.png" alt="" width="64" height="58" loading="lazy">
+        </button>
+        <button type="button" class="thumbnail" data-video="assets/media/placeholder-reconstruction.mp4" data-poster="assets/media/placeholder-reconstruction.png" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, example 3, placeholder">
+          <img src="assets/media/placeholder-reconstruction.png" alt="" width="64" height="58" loading="lazy">
+        </button>
+        <button type="button" class="thumbnail" data-video="assets/media/placeholder-reconstruction.mp4" data-poster="assets/media/placeholder-reconstruction.png" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, example 4, placeholder">
+          <img src="assets/media/placeholder-reconstruction.png" alt="" width="64" height="58" loading="lazy">
+        </button>
+      </div>
+      <figure>
+        <video id="static-video" data-player poster="assets/media/placeholder-reconstruction.png" width="960" height="880" controls muted loop playsinline preload="none" aria-label="Static 3D Reconstruction and Understanding">
+          Your browser does not support HTML video.
+        </video>
+        <p class="video-error" data-video-error role="status" hidden></p>
+      </figure>
+    </section>
+
+    <section id="waymo" class="content-section" data-gallery aria-labelledby="waymo-title">
+      <h2 id="waymo-title">Waymo Static 3D Results</h2>
+      <div class="thumbnails" role="group" aria-label="Waymo Static 3D Results examples">
+        <button type="button" class="thumbnail is-selected" data-video="assets/media/placeholder-reconstruction.mp4" data-poster="assets/media/placeholder-reconstruction.png" aria-pressed="true" aria-controls="waymo-video" aria-label="Waymo static 3D, example 1, placeholder">
+          <img src="assets/media/placeholder-reconstruction.png" alt="" width="64" height="58" loading="lazy">
+        </button>
+        <button type="button" class="thumbnail" data-video="assets/media/placeholder-reconstruction.mp4" data-poster="assets/media/placeholder-reconstruction.png" aria-pressed="false" aria-controls="waymo-video" aria-label="Waymo static 3D, example 2, placeholder">
+          <img src="assets/media/placeholder-reconstruction.png" alt="" width="64" height="58" loading="lazy">
+        </button>
+      </div>
+      <figure>
+        <video id="waymo-video" data-player poster="assets/media/placeholder-reconstruction.png" width="960" height="880" controls muted loop playsinline preload="none" aria-label="Waymo Static 3D Results">
+          Your browser does not support HTML video.
+        </video>
+        <p class="video-error" data-video-error role="status" hidden></p>
+      </figure>
+    </section>
+
+    <section id="dynamic" class="content-section" data-gallery aria-labelledby="dynamic-title">
+      <h2 id="dynamic-title">Dynamic 4D Reconstruction and Understanding</h2>
+      <div class="thumbnails" role="group" aria-label="Dynamic 4D Reconstruction and Understanding examples">
+        <button type="button" class="thumbnail is-selected" data-video="assets/media/placeholder-reconstruction.mp4" data-poster="assets/media/placeholder-reconstruction.png" aria-pressed="true" aria-controls="dynamic-video" aria-label="Dynamic 4D, example 1, placeholder">
+          <img src="assets/media/placeholder-reconstruction.png" alt="" width="64" height="58" loading="lazy">
+        </button>
+        <button type="button" class="thumbnail" data-video="assets/media/placeholder-reconstruction.mp4" data-poster="assets/media/placeholder-reconstruction.png" aria-pressed="false" aria-controls="dynamic-video" aria-label="Dynamic 4D, example 2, placeholder">
+          <img src="assets/media/placeholder-reconstruction.png" alt="" width="64" height="58" loading="lazy">
+        </button>
+      </div>
+      <figure>
+        <video id="dynamic-video" data-player poster="assets/media/placeholder-reconstruction.png" width="960" height="880" controls muted loop playsinline preload="none" aria-label="Dynamic 4D Reconstruction and Understanding">
+          Your browser does not support HTML video.
+        </video>
+        <p class="video-error" data-video-error role="status" hidden></p>
+      </figure>
+    </section>
+
+    <section id="simulation" class="content-section" data-gallery aria-labelledby="simulation-title">
+      <h2 id="simulation-title">Application: Robot Simulation</h2>
+      <div class="thumbnails" role="group" aria-label="Robot Simulation examples">
+        <button type="button" class="thumbnail is-selected" data-video="assets/media/placeholder-landscape.mp4" data-poster="assets/media/placeholder-landscape.png" aria-pressed="true" aria-controls="simulation-video" aria-label="Robot simulation, example 1, placeholder">
+          <img src="assets/media/placeholder-landscape.png" alt="" width="64" height="58" loading="lazy">
+        </button>
+        <button type="button" class="thumbnail" data-video="assets/media/placeholder-landscape.mp4" data-poster="assets/media/placeholder-landscape.png" aria-pressed="false" aria-controls="simulation-video" aria-label="Robot simulation, example 2, placeholder">
+          <img src="assets/media/placeholder-landscape.png" alt="" width="64" height="58" loading="lazy">
+        </button>
+        <button type="button" class="thumbnail" data-video="assets/media/placeholder-landscape.mp4" data-poster="assets/media/placeholder-landscape.png" aria-pressed="false" aria-controls="simulation-video" aria-label="Robot simulation, example 3, placeholder">
+          <img src="assets/media/placeholder-landscape.png" alt="" width="64" height="58" loading="lazy">
+        </button>
+        <button type="button" class="thumbnail" data-video="assets/media/placeholder-landscape.mp4" data-poster="assets/media/placeholder-landscape.png" aria-pressed="false" aria-controls="simulation-video" aria-label="Robot simulation, example 4, placeholder">
+          <img src="assets/media/placeholder-landscape.png" alt="" width="64" height="58" loading="lazy">
+        </button>
+      </div>
+      <figure>
+        <video id="simulation-video" data-player poster="assets/media/placeholder-landscape.png" width="960" height="540" controls muted loop playsinline preload="none" aria-label="Robot Simulation">
+          Your browser does not support HTML video.
+        </video>
+        <p class="video-error" data-video-error role="status" hidden></p>
+      </figure>
+    </section>
+
+    <section id="editing" class="content-section" data-gallery aria-labelledby="editing-title">
+      <h2 id="editing-title">Application: 3D Scene Editing</h2>
+      <div class="thumbnails" role="group" aria-label="3D Scene Editing examples">
+        <button type="button" class="thumbnail is-selected" data-video="assets/media/editing-01.mp4" data-poster="assets/media/editing-01.png" aria-pressed="true" aria-controls="editing-video" aria-label="Kitchen scene editing">
+          <img src="assets/media/editing-01.png" alt="" width="64" height="58" loading="lazy">
+        </button>
+        <button type="button" class="thumbnail" data-video="assets/media/editing-02.mp4" data-poster="assets/media/editing-02.png" aria-pressed="false" aria-controls="editing-video" aria-label="Living room scene editing">
+          <img src="assets/media/editing-02.png" alt="" width="64" height="58" loading="lazy">
+        </button>
+        <button type="button" class="thumbnail" data-video="assets/media/editing-03.mp4" data-poster="assets/media/editing-03.png" aria-pressed="false" aria-controls="editing-video" aria-label="Chateau scene editing">
+          <img src="assets/media/editing-03.png" alt="" width="64" height="58" loading="lazy">
+        </button>
+        <button type="button" class="thumbnail" data-video="assets/media/editing-04.mp4" data-poster="assets/media/editing-04.png" aria-pressed="false" aria-controls="editing-video" aria-label="Industrial interior scene editing">
+          <img src="assets/media/editing-04.png" alt="" width="64" height="58" loading="lazy">
+        </button>
+      </div>
+      <figure>
+        <video id="editing-video" data-player poster="assets/media/editing-01.png" width="1920" height="1056" controls muted loop playsinline preload="none" aria-label="3D Scene Editing">
+          Your browser does not support HTML video.
+        </video>
+        <p class="video-error" data-video-error role="status" hidden></p>
+      </figure>
+    </section>
+
+    <section id="assets" class="content-section" data-gallery aria-labelledby="assets-title">
+      <h2 id="assets-title">Application: 3D Asset Extraction</h2>
+      <div class="thumbnails" role="group" aria-label="3D Asset Extraction examples">
+        <button type="button" class="thumbnail is-selected" data-video="assets/media/placeholder-landscape.mp4" data-poster="assets/media/placeholder-landscape.png" aria-pressed="true" aria-controls="assets-video" aria-label="Asset extraction, example 1, placeholder">
+          <img src="assets/media/placeholder-landscape.png" alt="" width="64" height="58" loading="lazy">
+        </button>
+        <button type="button" class="thumbnail" data-video="assets/media/placeholder-landscape.mp4" data-poster="assets/media/placeholder-landscape.png" aria-pressed="false" aria-controls="assets-video" aria-label="Asset extraction, example 2, placeholder">
+          <img src="assets/media/placeholder-landscape.png" alt="" width="64" height="58" loading="lazy">
+        </button>
+        <button type="button" class="thumbnail" data-video="assets/media/placeholder-landscape.mp4" data-poster="assets/media/placeholder-landscape.png" aria-pressed="false" aria-controls="assets-video" aria-label="Asset extraction, example 3, placeholder">
+          <img src="assets/media/placeholder-landscape.png" alt="" width="64" height="58" loading="lazy">
+        </button>
+        <button type="button" class="thumbnail" data-video="assets/media/placeholder-landscape.mp4" data-poster="assets/media/placeholder-landscape.png" aria-pressed="false" aria-controls="assets-video" aria-label="Asset extraction, example 4, placeholder">
+          <img src="assets/media/placeholder-landscape.png" alt="" width="64" height="58" loading="lazy">
+        </button>
+      </div>
+      <figure>
+        <video id="assets-video" data-player poster="assets/media/placeholder-landscape.png" width="960" height="540" controls muted loop playsinline preload="none" aria-label="3D Asset Extraction">
+          Your browser does not support HTML video.
+        </video>
+        <p class="video-error" data-video-error role="status" hidden></p>
+      </figure>
+    </section>
+  </main>
+</body>
+</html>
