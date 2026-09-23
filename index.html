@@ -13,7 +13,7 @@
 <body>
   <main>
     <header class="page-header">
-      <h1><span class="project-name">LucidLyra</span> Feed-Forward Generative 3D Scene Reconstruction and Understanding via Multi-Teacher Distillation</h1>
+      <h1><span class="project-name"><span class="project-name-feature">Lucid</span>Lyra</span> Feed-Forward Generative 3D Scene Reconstruction and Understanding via Multi-Teacher Distillation</h1>
       <p class="submission-label">Anonymous authors</p>
     </header>
     <noscript><p>Enable JavaScript to play the videos and browse gallery examples. The abstract and method remain available below.</p></noscript>
@@ -23,7 +23,7 @@
       </video>
       <p class="video-error" data-video-error role="status" hidden></p>
     </figure>
-    <p class="summary"><strong>TL;DR:</strong> LucidLyra turns a single image into a 3D Gaussian scene you can explore from new viewpoints, query with language, and edit object by object, with a time-conditioned extension for dynamic scenes from monocular video.</p>
+    <p class="summary"><strong>TL;DR:</strong> LucidLyra turns a single image into a queryable 3D Gaussian scene that jointly represents geometry, appearance, open-vocabulary semantics, and object instances. Our unified feed-forward decoder distills knowledge from the video generation backbone and vision foundation models using the backbone’s generated videos. LucidLyra generated scenes enable physical AI simulation, 3D editing, and 3D asset mining.</p>
 
     <section class="content-section" aria-labelledby="abstract-title">
       <h2 id="abstract-title">Abstract</h2>
@@ -35,12 +35,12 @@
       <a class="method-link" href="assets/media/method.png?v=2ec277c333" aria-label="View the method diagram at full resolution">
         <img class="method-image" src="assets/media/method.png?v=2ec277c333" width="2400" height="883" loading="lazy" decoding="async" alt="LucidLyra framework: a frozen camera-controlled video model and 2D teachers supervise a Gaussian decoder that predicts geometry, appearance, semantic features, and instance features.">
       </a>
-      <p class="method-caption">A camera-controlled video model generates multiple views from a single image, while frozen 2D semantic and tracking models provide aligned training targets without manual 3D annotations. We distill these targets into a Gaussian decoder that combines generated video latents, camera rays, and features from the input image to predict geometry, appearance, semantic features, and instance embeddings in one forward pass without per-scene optimization. For monocular video, time conditioning reconstructs a separate 3D scene at each queried time.</p>
+      <p class="method-caption">Given a single image, LucidLyra uses a frozen camera-controlled video model to generate multi-view latents. A Gaussian decoder combines these latents with camera rays and C-RADIO image features, then predicts geometry, appearance, semantics, and instance embeddings through separate reconstruction and understanding heads. During training, frozen SAM/SAM2 and RADSeg teachers extract object tracks and language-aligned features from the generated RGB frames. Semantic features are pooled within tracks to provide consistent supervision across views. Reconstruction, semantic, and contrastive instance losses jointly train the decoder without manual 3D annotations. Once video latents are available, a single decoder pass produces a scene supporting novel-view rendering, text-based semantic queries, and instance clustering without per-scene optimization. For dynamic scenes, time encodings and query-frame features enable decoding a separate scene state at each requested time.</p>
     </section>
 
 
     <section id="static" class="content-section" data-gallery aria-labelledby="static-title">
-      <h2 id="static-title">Static 3D Reconstruction and Understanding</h2>
+      <h2 id="static-title">Generative Image-to-3D Reconstruction and Understanding</h2>
       <div class="thumbnails" role="group" aria-label="Static 3D Reconstruction and Understanding examples">
         <button type="button" class="thumbnail is-selected" data-video="assets/media/static-01.mp4" data-poster="assets/media/static-01.png" aria-pressed="true" aria-controls="static-video" aria-label="Static 3D, scene set 1">
           <img src="assets/media/static-01-thumb.webp?v=27bcfc3ee7" alt="" width="80" height="68" loading="lazy" decoding="async">
@@ -93,12 +93,12 @@
           Your browser does not support HTML video.
         </video>
         <p class="video-error" data-video-error role="status" hidden></p>
-        <figcaption id="static-caption" class="visualization-caption">We visualize static 3D scenes generated from single images using novel-view RGB renderings, PCA projections of semantic and instance features, and open-vocabulary and instance segmentation.</figcaption>
+        <figcaption id="static-caption" class="visualization-caption">Image-to-3D LucidLyra results using text-to-image generated input images. </figcaption>
       </figure>
     </section>
 
     <section id="waymo" class="content-section" data-gallery aria-labelledby="waymo-title">
-      <h2 id="waymo-title">Waymo Static 3D Results</h2>
+      <h2 id="waymo-title">Real-World Image-to-3D Reconstruction and Understanding on Waymo</h2>
       <div class="thumbnails" role="group" aria-label="Waymo Static 3D Results examples">
         <button type="button" class="thumbnail is-selected" data-video="assets/media/waymo-01.mp4" data-poster="assets/media/waymo-01.png" aria-pressed="true" aria-controls="waymo-video" aria-label="Waymo static 3D, scene set 1">
           <img src="assets/media/waymo-01-thumb.webp?v=201b2f2eef" alt="" width="80" height="68" loading="lazy" decoding="async">
@@ -118,12 +118,12 @@
           Your browser does not support HTML video.
         </video>
         <p class="video-error" data-video-error role="status" hidden></p>
-        <figcaption id="waymo-caption" class="visualization-caption">We visualize 3D scenes reconstructed from Waymo images, with rows showing RGB renderings, PCA projections of semantic and instance features, and open-vocabulary and instance segmentation.</figcaption>
+        <figcaption id="waymo-caption" class="visualization-caption">Image-to-3D LucidLyra results using input images from the Waymo Open dataset.</figcaption>
       </figure>
     </section>
 
     <section id="dynamic" class="content-section" data-gallery aria-labelledby="dynamic-title">
-      <h2 id="dynamic-title">Dynamic 4D Reconstruction and Understanding</h2>
+      <h2 id="dynamic-title">Generative Video-to-4D Reconstruction and Understanding</h2>
       <div class="thumbnails" role="group" aria-label="Dynamic 4D Reconstruction and Understanding examples">
         <button type="button" class="thumbnail is-selected" data-video="assets/media/placeholder-reconstruction.mp4" data-poster="assets/media/placeholder-reconstruction.png" aria-pressed="true" aria-controls="dynamic-video" aria-label="Dynamic 4D, example 1, placeholder">
           <img src="assets/media/placeholder-reconstruction-thumb.webp?v=355fffebe2" alt="" width="80" height="68" loading="lazy" decoding="async">
@@ -137,7 +137,7 @@
           Your browser does not support HTML video.
         </video>
         <p class="video-error" data-video-error role="status" hidden></p>
-        <figcaption id="dynamic-caption" class="visualization-caption">We visualize time-conditioned 3D Gaussian reconstructions from monocular video, including novel-view appearance, semantic and instance features, and segmentation at queried times.</figcaption>
+        <figcaption id="dynamic-caption" class="visualization-caption">LucidLyra scenes using input videos generated by combining text-to-image and image-to-video generation.</figcaption>
       </figure>
     </section>
 
@@ -162,15 +162,15 @@
           Your browser does not support HTML video.
         </video>
         <p class="video-error" data-video-error role="status" hidden></p>
-        <figcaption id="simulation-caption" class="visualization-caption">Reconstructed geometry and semantic labels support robot navigation and manipulation in simulation, with extracted meshes providing collision geometry and Gaussian splats preserving visual appearance.</figcaption>
+        <figcaption id="simulation-caption" class="visualization-caption">Robotic simulation in Isaac Sim using LucidLyra scenes.</figcaption>
       </figure>
     </section>
 
     <section id="editing" class="content-section" data-gallery aria-labelledby="editing-title">
       <h2 id="editing-title">Application: 3D Scene Editing</h2>
       <div class="thumbnails" role="group" aria-label="3D Scene Editing examples">
-        <button type="button" class="thumbnail is-selected" data-video="assets/media/editing-01.mp4" data-poster="assets/media/editing-01.png" aria-pressed="true" aria-controls="editing-video" aria-label="Kitchen scene editing">
-          <img src="assets/media/editing-01-thumb.webp?v=8920ab2840" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail is-selected" data-video="assets/media/editing-01.mp4?v=32401858e9" data-poster="assets/media/editing-01.png?v=8dd5a3c779" aria-pressed="true" aria-controls="editing-video" aria-label="Kitchen scene editing">
+          <img src="assets/media/editing-01-thumb.webp?v=72b839ef6b" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
         <button type="button" class="thumbnail" data-video="assets/media/editing-02.mp4?v=f628873aee" data-poster="assets/media/editing-02.png?v=8a70aa6270" aria-pressed="false" aria-controls="editing-video" aria-label="Living room scene editing">
           <img src="assets/media/editing-02-thumb.webp?v=22af135aad" alt="" width="80" height="68" loading="lazy" decoding="async">
@@ -183,11 +183,11 @@
         </button>
       </div>
       <figure>
-        <video id="editing-video" data-player aria-describedby="editing-caption" poster="assets/media/editing-01.png" width="1920" height="1056" controls muted loop playsinline preload="none" aria-label="3D Scene Editing">
+        <video id="editing-video" data-player aria-describedby="editing-caption" poster="assets/media/editing-01.png?v=8dd5a3c779" width="1920" height="1056" controls muted loop playsinline preload="none" aria-label="3D Scene Editing">
           Your browser does not support HTML video.
         </video>
         <p class="video-error" data-video-error role="status" hidden></p>
-        <figcaption id="editing-caption" class="visualization-caption">Semantic and instance cues guide object selection for Gaussian-level manipulation and removal, while image inpainting and reconstruction complete newly exposed background regions.</figcaption>
+        <figcaption id="editing-caption" class="visualization-caption">LucidLyra's open-vocabulary and instance fields enable 3D scene editing.</figcaption>
       </figure>
     </section>
 
@@ -212,7 +212,7 @@
           Your browser does not support HTML video.
         </video>
         <p class="video-error" data-video-error role="status" hidden></p>
-        <figcaption id="assets-caption" class="visualization-caption">We reconstruct textured meshes from segmented multi-view object observations and visualize the resulting assets under rotation to inspect their appearance and geometry.</figcaption>
+        <figcaption id="assets-caption" class="visualization-caption">3D asset generation and articulation using LucidLyra generated scenes.</figcaption>
       </figure>
     </section>
 
@@ -223,7 +223,7 @@
           Your browser does not support HTML video.
         </video>
         <p class="video-error" data-video-error role="status" hidden></p>
-        <figcaption id="comparison-caption" class="visualization-caption">We compare LucidLyra with baseline methods through open-vocabulary semantic and instance segmentation across multiple viewpoints.</figcaption>
+        <figcaption id="comparison-caption" class="visualization-caption">Comparing LucidLyra to baselines combining Lyra with state-of-the-art 3DGS understanding approaches.</figcaption>
       </figure>
     </section>
   </main>
