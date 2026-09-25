@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Anonymous supplementary website for LucidLyra: generative 3D reconstruction and scene understanding.">
   <meta name="robots" content="noindex, nofollow">
-  <title>LucidLyra: Feed-Forward Generative 3D Scene Reconstruction and Understanding via Multi-Teacher Distillation</title>
+  <title>LucidLyra: Feed-Forward Generative 3D Scene Reconstruction and Joint Understanding via Multi-Task Distillation</title>
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="assets/site.css">
   <script src="assets/site.js" defer></script>
@@ -13,17 +13,17 @@
 <body>
   <main>
     <header class="page-header">
-      <h1><span class="project-name"><span class="project-name-feature">Lucid</span>Lyra</span> Feed-Forward Generative 3D Scene Reconstruction and Understanding via Multi-Teacher Distillation</h1>
+      <h1><span class="project-name"><span class="project-name-feature">Lucid</span>Lyra</span> Feed-Forward Generative 3D Scene Reconstruction and Joint Understanding via Multi-Task Distillation</h1>
       <p class="submission-label">Anonymous authors</p>
     </header>
     <noscript><p>Enable JavaScript to play the videos and browse gallery examples. The abstract and method remain available below.</p></noscript>
     <figure data-video-block>
-      <video id="teaser-video" data-player data-src="assets/media/teaser.mp4?v=4677c34df4" poster="assets/media/teaser.webp?v=112c92033f" width="1920" height="1056" controls muted loop playsinline preload="none" aria-label="LucidLyra teaser: static and dynamic 3D scene reconstruction and understanding">
+      <video id="teaser-video" data-player data-src="assets/media/teaser.mp4?v=b277589e85" poster="assets/media/teaser.webp?v=35f917573a" width="1920" height="1056" controls muted loop playsinline preload="none" aria-label="LucidLyra teaser: static and dynamic 3D scene reconstruction and understanding">
         Your browser does not support HTML video.
       </video>
       <p class="video-error" data-video-error role="status" hidden></p>
     </figure>
-    <p class="summary"><strong>TL;DR:</strong> LucidLyra turns a single image into a queryable 3D Gaussian scene that jointly represents geometry, appearance, open-vocabulary semantics, and object instances. Our unified feed-forward decoder distills knowledge from a video generation backbone and vision foundation models using the backbone’s generated videos. We further extend LucidLyra to infer structured dynamic 3D scenes from an input video. LucidLyra generated scenes enable physical AI simulation, 3D editing, and 3D asset mining.</p>
+    <p class="summary"><strong>TL;DR:</strong> LucidLyra turns a single image into a queryable 3D Gaussian scene that jointly represents geometry, appearance, open-vocabulary semantics, and object instances. Our unified feed-forward decoder distills knowledge from a video generation backbone and vision foundation models using the backbone's generated videos. We further extend it to infer structured dynamic 3D scenes from an input video. LucidLyra's generated scenes enable physical AI simulation, 3D editing, and 3D asset mining.</p>
 
     <section class="content-section" aria-labelledby="abstract-title">
       <h2 id="abstract-title">Abstract</h2>
@@ -31,72 +31,63 @@
         While generative 3D reconstruction can synthesize virtual environments from a single image, downstream applications in robotics and physical AI require not only visual realism but also access to scene semantics and object identities.
         Existing 3D understanding approaches, however, require captured multi-view scenes, have limited generalization capabilities, or rely on expensive per-scene processing and optimization.
         To bridge this gap, our method distills complementary knowledge from a camera-controlled video diffusion model and frozen 2D vision foundation models into 3D Gaussians that jointly encode geometry, appearance, open-vocabulary semantics, and class-agnostic instance cues.
-        The resulting scenes support novel-view rendering, open-vocabulary segmentation, and object grouping without per-scene optimization at test time, while training requires neither manual 3D annotations nor real-world or multi-view data.
+        The resulting scenes support novel-view rendering, open-vocabulary segmentation, and object grouping without per-scene optimization at test time, while training requires neither manual 3D annotations nor captured multi-view data.
         Furthermore, our latent formulation naturally extends to monocular video, reconstructing structured dynamic 3D scenes across time.
-        Our method outperforms baselines combining state-of-the-art 3DGS segmentation approaches with generative 3D scene reconstruction across diverse evaluation domains, without compromising reconstruction quality.
+        Our method outperforms baselines combining state-of-the-art 3DGS segmentation approaches with generative 3D scene reconstruction on curated synthetic and real-image-conditioned benchmarks, without compromising reconstruction quality.
         By turning renderable but unstructured outputs into queryable 3D worlds, LucidLyra enables downstream applications including 3D scene editing, asset extraction, and robotic simulation.</p>
     </section>
 
     <section class="content-section" aria-labelledby="method-title">
       <h2 id="method-title">Method</h2>
-      <a class="method-link" href="assets/media/method.png?v=2ec277c333" aria-label="View the method diagram at full resolution">
-        <img class="method-image" src="assets/media/method.png?v=2ec277c333" width="2400" height="883" loading="lazy" decoding="async" alt="LucidLyra framework: a frozen camera-controlled video model and 2D teachers supervise a Gaussian decoder that predicts geometry, appearance, semantic features, and instance features.">
+      <a class="method-link" href="assets/media/method.png?v=ba91979ed5" aria-label="View the method diagram at full resolution">
+        <img class="method-image" src="assets/media/method.png?v=ba91979ed5" width="3000" height="1104" loading="lazy" decoding="async" alt="LucidLyra framework: a frozen camera-controlled video model and 2D teachers supervise a Gaussian decoder that predicts geometry, appearance, semantic features, and instance features.">
       </a>
-      <p class="method-caption">Given a single image, LucidLyra uses a frozen camera-controlled video model to generate multi-view latents. A Gaussian decoder combines these latents with camera rays and C-RADIO input image features, then predicts geometry, appearance, semantics, and instance embeddings through separate reconstruction and understanding heads. During training, frozen SAM/SAM2 and projected SigLIP2 teachers extract object tracks and language-aligned features from the generated videos. Reconstruction, semantic, and instance losses jointly train our 3DGS decoder without real-word data, multi-view data, or manual 3D annotations. Once video latents are available, a single decoder pass produces a scene supporting novel-view rendering, text-based semantic segmentation, and instance clustering without per-scene optimization. For dynamic scenes, time encodings and query-frame features enable decoding a 3D scene state at a requested time from a monocular input video.</p>
+      <p class="method-caption">Given a single image, LucidLyra uses a frozen camera-controlled video model to generate multi-view latents. A Gaussian decoder combines these latents with camera rays and C-RADIO input image features, then predicts geometry, appearance, semantics, and instance embeddings through separate reconstruction and understanding heads. During training, frozen SAM/SAM2 and projected SigLIP2 teachers extract object tracks and language-aligned features from the generated videos. Reconstruction, semantic, and instance losses jointly train our 3DGS decoder without captured multi-view data or manual 3D annotations. Given video latents a single decoder pass produces a scene supporting novel-view rendering, open-vocabulary semantic segmentation, and instance clustering without per-scene optimization. For dynamic scenes, time encodings and query-frame features enable decoding a 3D scene state at a requested time from a monocular input video.</p>
     </section>
 
 
     <section id="static" class="content-section" data-gallery aria-labelledby="static-title">
       <h2 id="static-title">Generative Image-to-3D Reconstruction and Understanding</h2>
       <div class="thumbnails" role="group" aria-label="Static 3D Reconstruction and Understanding examples">
-        <button type="button" class="thumbnail is-selected" data-video="assets/media/static-01.mp4" data-poster="assets/media/static-01.png" aria-pressed="true" aria-controls="static-video" aria-label="Static 3D, scene set 1">
-          <img src="assets/media/static-01-thumb.webp?v=27bcfc3ee7" alt="" width="80" height="68" loading="lazy" decoding="async">
-        </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-02.mp4" data-poster="assets/media/static-02.png" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 2">
-          <img src="assets/media/static-02-thumb.webp?v=13793deba1" alt="" width="80" height="68" loading="lazy" decoding="async">
-        </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-03.mp4" data-poster="assets/media/static-03.png" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 3">
+        <button type="button" class="thumbnail is-selected" data-video="assets/media/static-03.mp4?v=c732015655" data-poster="assets/media/static-03.png?v=5ce4919590" aria-pressed="true" aria-controls="static-video" aria-label="Static 3D, scene set 1">
           <img src="assets/media/static-03-thumb.webp?v=98dec3163c" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-04.mp4" data-poster="assets/media/static-04.png" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 4">
+        <button type="button" class="thumbnail" data-video="assets/media/static-01.mp4?v=2a183b25f1" data-poster="assets/media/static-01.png?v=6ec76aeb41" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 2">
+          <img src="assets/media/static-01-thumb.webp?v=27bcfc3ee7" alt="" width="80" height="68" loading="lazy" decoding="async">
+        </button>
+        <button type="button" class="thumbnail" data-video="assets/media/static-04.mp4?v=b16c1fc207" data-poster="assets/media/static-04.png?v=c8e51849fa" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 3">
           <img src="assets/media/static-04-thumb.webp?v=7d142f1bb7" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-05.mp4" data-poster="assets/media/static-05.png" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 5">
-          <img src="assets/media/static-05-thumb.webp?v=c67ea75ef7" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/static-02.mp4?v=0636f5cf0d" data-poster="assets/media/static-02.png?v=43ab9a0a16" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 4">
+          <img src="assets/media/static-02-thumb.webp?v=13793deba1" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-06.mp4" data-poster="assets/media/static-06.png" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 6">
-          <img src="assets/media/static-06-thumb.webp?v=944c84efa4" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/static-05.mp4?v=22507cce11" data-poster="assets/media/static-05.png?v=8e354a6b09" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 5">
+          <img src="assets/media/static-05-thumb.webp?v=5e157a8264" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-07.mp4" data-poster="assets/media/static-07.png" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 7">
-          <img src="assets/media/static-07-thumb.webp?v=bfa87c8be3" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/static-07.mp4?v=510154a85a" data-poster="assets/media/static-07.png?v=496bb8d6bb" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 6">
+          <img src="assets/media/static-07-thumb.webp?v=cbdb2cef51" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-08.mp4" data-poster="assets/media/static-08.png" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 8">
-          <img src="assets/media/static-08-thumb.webp?v=33d53ef2c4" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/static-08.mp4?v=585b1d019d" data-poster="assets/media/static-08.png?v=001314942d" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 7">
+          <img src="assets/media/static-08-thumb.webp?v=1bc1317a26" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-09.mp4" data-poster="assets/media/static-09.png" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 9">
-          <img src="assets/media/static-09-thumb.webp?v=7afec2a27d" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/static-09.mp4?v=e6ea874689" data-poster="assets/media/static-09.png?v=4dbc35cb68" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 8">
+          <img src="assets/media/static-09-thumb.webp?v=a33ab0509d" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-10.mp4" data-poster="assets/media/static-10.png" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 10">
-          <img src="assets/media/static-10-thumb.webp?v=646f324c44" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/static-10.mp4?v=732cf37c85" data-poster="assets/media/static-10.png?v=1086a34067" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 9">
+          <img src="assets/media/static-10-thumb.webp?v=a3dcff8076" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-11.mp4" data-poster="assets/media/static-11.png" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 11">
+        <button type="button" class="thumbnail" data-video="assets/media/static-11.mp4?v=3503cfc789" data-poster="assets/media/static-11.png?v=e968f76ced" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 10">
           <img src="assets/media/static-11-thumb.webp?v=f0ba5d83f3" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-12.mp4" data-poster="assets/media/static-12.png" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 12">
-          <img src="assets/media/static-12-thumb.webp?v=131a16ce34" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/static-12.mp4?v=77dfdac9f2" data-poster="assets/media/static-12.png?v=0ed68ccd42" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 11">
+          <img src="assets/media/static-12-thumb.webp?v=4a8f7c8eff" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-13.mp4" data-poster="assets/media/static-13.png" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 13">
-          <img src="assets/media/static-13-thumb.webp?v=bbec9fba7e" alt="" width="80" height="68" loading="lazy" decoding="async">
-        </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-14.mp4" data-poster="assets/media/static-14.png" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 14">
-          <img src="assets/media/static-14-thumb.webp?v=646cef74ff" alt="" width="80" height="68" loading="lazy" decoding="async">
-        </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-15.mp4" data-poster="assets/media/static-15.png" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 15">
-          <img src="assets/media/static-15-thumb.webp?v=03897e330e" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/static-06.mp4?v=bc77fb341d" data-poster="assets/media/static-06.png?v=8baf3969f3" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 12">
+          <img src="assets/media/static-06-thumb.webp?v=944c84efa4" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
       </div>
       <figure>
-        <video id="static-video" data-player aria-describedby="static-caption" poster="assets/media/static-01.png" width="1920" height="1760" controls muted loop playsinline preload="none" aria-label="Static 3D Reconstruction and Understanding">
+        <video id="static-video" data-player aria-describedby="static-caption" poster="assets/media/static-03.png?v=5ce4919590" width="1920" height="1760" controls muted loop playsinline preload="none" aria-label="Static 3D Reconstruction and Understanding">
           Your browser does not support HTML video.
         </video>
         <p class="video-error" data-video-error role="status" hidden></p>
@@ -107,11 +98,11 @@
     <section id="waymo" class="content-section" data-gallery aria-labelledby="waymo-title">
       <h2 id="waymo-title">Real-World Image-to-3D Reconstruction and Understanding on Waymo</h2>
       <div class="thumbnails" role="group" aria-label="Waymo Static 3D Results examples">
-        <button type="button" class="thumbnail is-selected" data-video="assets/media/waymo-01.mp4" data-poster="assets/media/waymo-01.png" aria-pressed="true" aria-controls="waymo-video" aria-label="Waymo static 3D, scene set 1">
-          <img src="assets/media/waymo-01-thumb.webp?v=201b2f2eef" alt="" width="80" height="68" loading="lazy" decoding="async">
-        </button>
-        <button type="button" class="thumbnail" data-video="assets/media/waymo-02.mp4" data-poster="assets/media/waymo-02.png" aria-pressed="false" aria-controls="waymo-video" aria-label="Waymo static 3D, scene set 2">
+        <button type="button" class="thumbnail is-selected" data-video="assets/media/waymo-02.mp4" data-poster="assets/media/waymo-02.png" aria-pressed="true" aria-controls="waymo-video" aria-label="Waymo static 3D, scene set 2">
           <img src="assets/media/waymo-02-thumb.webp?v=1f9087d57f" alt="" width="80" height="68" loading="lazy" decoding="async">
+        </button>
+        <button type="button" class="thumbnail" data-video="assets/media/waymo-01.mp4" data-poster="assets/media/waymo-01.png" aria-pressed="false" aria-controls="waymo-video" aria-label="Waymo static 3D, scene set 1">
+          <img src="assets/media/waymo-01-thumb.webp?v=201b2f2eef" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
         <button type="button" class="thumbnail" data-video="assets/media/waymo-03.mp4" data-poster="assets/media/waymo-03.png" aria-pressed="false" aria-controls="waymo-video" aria-label="Waymo static 3D, scene set 3">
           <img src="assets/media/waymo-03-thumb.webp?v=ae04018ca1" alt="" width="80" height="68" loading="lazy" decoding="async">
@@ -121,7 +112,7 @@
         </button>
       </div>
       <figure>
-        <video id="waymo-video" data-player aria-describedby="waymo-caption" poster="assets/media/waymo-01.png" width="1920" height="1760" controls muted loop playsinline preload="none" aria-label="Waymo Static 3D Results">
+        <video id="waymo-video" data-player aria-describedby="waymo-caption" poster="assets/media/waymo-02.png" width="1920" height="1760" controls muted loop playsinline preload="none" aria-label="Waymo Static 3D Results">
           Your browser does not support HTML video.
         </video>
         <p class="video-error" data-video-error role="status" hidden></p>
@@ -132,18 +123,21 @@
     <section id="dynamic" class="content-section" data-gallery aria-labelledby="dynamic-title">
       <h2 id="dynamic-title">Generative Video-to-4D Reconstruction and Understanding</h2>
       <div class="thumbnails" role="group" aria-label="Dynamic 4D Reconstruction and Understanding examples">
-        <button type="button" class="thumbnail is-selected" data-video="assets/media/dynamic-01.mp4?v=6b7550b30d" data-poster="assets/media/dynamic-01.png?v=aa78a72f55" aria-pressed="true" aria-controls="dynamic-video" aria-label="Rocket liftoff, dachshund teatime, and horse grazing">
-          <img src="assets/media/dynamic-01-thumb.webp?v=4c0a8aecba" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail is-selected" data-video="assets/media/dynamic-03.mp4?v=6064fd8769" data-poster="assets/media/dynamic-03.png?v=f363554d77" aria-pressed="true" aria-controls="dynamic-video" aria-label="Humanoid painting, excavator and cheese, and bear playing guitar">
+          <img src="assets/media/dynamic-03-thumb.webp?v=acbd95ac4f" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/dynamic-02.mp4?v=e126e18bd1" data-poster="assets/media/dynamic-02.png?v=993988f845" aria-pressed="false" aria-controls="dynamic-video" aria-label="Golden retriever paw, humanoid pushups, and watermelon impact">
-          <img src="assets/media/dynamic-02-thumb.webp?v=67ed563daa" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/dynamic-04.mp4?v=dfc0e94c01" data-poster="assets/media/dynamic-04.png?v=0cc4eb7534" aria-pressed="false" aria-controls="dynamic-video" aria-label="Polar bear family, coffee pouring, and typing cat">
+          <img src="assets/media/dynamic-04-thumb.webp?v=366c11c535" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/dynamic-03.mp4?v=6064fd8769" data-poster="assets/media/dynamic-03.png?v=b92f74a26f" aria-pressed="false" aria-controls="dynamic-video" aria-label="Humanoid painting, excavator and cheese, and bear playing guitar">
-          <img src="assets/media/dynamic-03-thumb.webp?v=1086f716d3" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/dynamic-01.mp4?v=6b7550b30d" data-poster="assets/media/dynamic-01.png?v=87dc5ea363" aria-pressed="false" aria-controls="dynamic-video" aria-label="Rocket liftoff, dachshund teatime, and horse grazing">
+          <img src="assets/media/dynamic-01-thumb.webp?v=4b538ae533" alt="" width="80" height="68" loading="lazy" decoding="async">
+        </button>
+        <button type="button" class="thumbnail" data-video="assets/media/dynamic-02.mp4?v=e126e18bd1" data-poster="assets/media/dynamic-02.png?v=3c49d3b8ec" aria-pressed="false" aria-controls="dynamic-video" aria-label="Golden retriever paw, humanoid pushups, and watermelon impact">
+          <img src="assets/media/dynamic-02-thumb.webp?v=b9e195a855" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
       </div>
       <figure>
-        <video id="dynamic-video" data-player aria-describedby="dynamic-caption" poster="assets/media/dynamic-01.png?v=aa78a72f55" width="1920" height="1760" controls muted loop playsinline preload="none" aria-label="Dynamic 4D Reconstruction and Understanding">
+        <video id="dynamic-video" data-player aria-describedby="dynamic-caption" poster="assets/media/dynamic-03.png?v=f363554d77" width="1920" height="1760" controls muted loop playsinline preload="none" aria-label="Dynamic 4D Reconstruction and Understanding">
           Your browser does not support HTML video.
         </video>
         <p class="video-error" data-video-error role="status" hidden></p>
@@ -185,11 +179,11 @@
         <button type="button" class="thumbnail" data-video="assets/media/editing-02.mp4?v=b0eab2f2b9" data-poster="assets/media/editing-02.png?v=1c36a3e15c" aria-pressed="false" aria-controls="editing-video" aria-label="Living room scene editing">
           <img src="assets/media/editing-02-thumb.webp?v=8c98a269c1" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/editing-03.mp4?v=dce02e778a" data-poster="assets/media/editing-03.png?v=4681115f23" aria-pressed="false" aria-controls="editing-video" aria-label="Chateau scene editing">
-          <img src="assets/media/editing-03-thumb.webp?v=f5599807b0" alt="" width="80" height="68" loading="lazy" decoding="async">
-        </button>
         <button type="button" class="thumbnail" data-video="assets/media/editing-04.mp4?v=f53bedf9ac" data-poster="assets/media/editing-04.png?v=91818d6d17" aria-pressed="false" aria-controls="editing-video" aria-label="Industrial interior scene editing">
           <img src="assets/media/editing-04-thumb.webp?v=4551d0999d" alt="" width="80" height="68" loading="lazy" decoding="async">
+        </button>
+        <button type="button" class="thumbnail" data-video="assets/media/editing-03.mp4?v=dce02e778a" data-poster="assets/media/editing-03.png?v=4681115f23" aria-pressed="false" aria-controls="editing-video" aria-label="Chateau scene editing">
+          <img src="assets/media/editing-03-thumb.webp?v=f5599807b0" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
       </div>
       <figure>
@@ -229,7 +223,13 @@
     <section id="comparison" class="content-section" data-gallery aria-labelledby="comparison-title">
       <h2 id="comparison-title">Baseline Comparison</h2>
       <div class="thumbnails" role="group" aria-label="Baseline comparison types">
-        <button type="button" class="thumbnail is-selected" data-video="assets/media/comparison-01.mp4?v=f9498ba05e" data-poster="assets/media/comparison-01.png?v=95b3d6c54f" aria-pressed="true" aria-controls="comparison-video" aria-label="Semantic comparison">
+        <button type="button" class="thumbnail is-selected" data-video="assets/media/comparison-05.mp4?v=8d0fdac218" data-poster="assets/media/comparison-05.png?v=b9651725e6" aria-pressed="true" aria-controls="comparison-video" aria-label="Semantic comparison, scene set 3">
+          <img src="assets/media/comparison-05-thumb.webp?v=b1e3b0e78b" alt="" width="80" height="68" loading="lazy" decoding="async">
+        </button>
+        <button type="button" class="thumbnail" data-video="assets/media/comparison-06.mp4?v=dda52d705f" data-poster="assets/media/comparison-06.png?v=a791fb57d3" aria-pressed="false" aria-controls="comparison-video" aria-label="Instance comparison, scene set 3">
+          <img src="assets/media/comparison-06-thumb.webp?v=ec53077f61" alt="" width="80" height="68" loading="lazy" decoding="async">
+        </button>
+        <button type="button" class="thumbnail" data-video="assets/media/comparison-01.mp4?v=f9498ba05e" data-poster="assets/media/comparison-01.png?v=95b3d6c54f" aria-pressed="false" aria-controls="comparison-video" aria-label="Semantic comparison">
           <img src="assets/media/comparison-01-thumb.webp?v=de9bbcbcc4" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
         <button type="button" class="thumbnail" data-video="assets/media/comparison-02.mp4?v=d34bed50c4" data-poster="assets/media/comparison-02.png?v=73ec5022ef" aria-pressed="false" aria-controls="comparison-video" aria-label="Instance comparison">
@@ -241,15 +241,9 @@
         <button type="button" class="thumbnail" data-video="assets/media/comparison-04.mp4?v=72c8a05f51" data-poster="assets/media/comparison-04.png?v=d3931b9df1" aria-pressed="false" aria-controls="comparison-video" aria-label="Instance comparison, scene set 2">
           <img src="assets/media/comparison-04-thumb.webp?v=2ced465e5b" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/comparison-05.mp4?v=8d0fdac218" data-poster="assets/media/comparison-05.png?v=b9651725e6" aria-pressed="false" aria-controls="comparison-video" aria-label="Semantic comparison, scene set 3">
-          <img src="assets/media/comparison-05-thumb.webp?v=b1e3b0e78b" alt="" width="80" height="68" loading="lazy" decoding="async">
-        </button>
-        <button type="button" class="thumbnail" data-video="assets/media/comparison-06.mp4?v=dda52d705f" data-poster="assets/media/comparison-06.png?v=a791fb57d3" aria-pressed="false" aria-controls="comparison-video" aria-label="Instance comparison, scene set 3">
-          <img src="assets/media/comparison-06-thumb.webp?v=ec53077f61" alt="" width="80" height="68" loading="lazy" decoding="async">
-        </button>
       </div>
       <figure>
-        <video id="comparison-video" data-player aria-describedby="comparison-caption" poster="assets/media/comparison-01.png?v=95b3d6c54f" width="1080" height="1584" controls muted loop playsinline preload="none" aria-label="Semantic comparison">
+        <video id="comparison-video" data-player aria-describedby="comparison-caption" poster="assets/media/comparison-05.png?v=b9651725e6" width="1080" height="1584" controls muted loop playsinline preload="none" aria-label="Semantic comparison, scene set 3">
           Your browser does not support HTML video.
         </video>
         <p class="video-error" data-video-error role="status" hidden></p>

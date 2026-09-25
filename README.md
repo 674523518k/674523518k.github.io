@@ -7,10 +7,9 @@ to preview it:
 python -m http.server 8000 --bind 127.0.0.1
 ```
 
-Open `http://127.0.0.1:8000` in a browser. The page reserves a teaser, six
-galleries with 15, 4, 2, 4, 4, and 4 clips, and a baseline comparison video.
-Two shared silent placeholder videos cover reconstruction (12:11) and
-landscape (16:9) formats.
+Open `http://127.0.0.1:8000` in a browser. The page contains a teaser, six
+galleries with 12, 4, 4, 4, 4, and 4 clips, and six baseline comparison clips.
+The static gallery presents 36 distinct scenes in 12 triplets.
 
 ## Replacing media
 
