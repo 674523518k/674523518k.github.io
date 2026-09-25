@@ -22,7 +22,7 @@
   <meta name="twitter:image:alt" content="LucidLyra teaser showing nine generated 3D scenes.">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="assets/site.css">
-  <script src="assets/site.js" defer></script>
+  <script src="assets/site.js?v=da7d5a3dd0" defer></script>
 </head>
 <body>
   <main>
@@ -54,7 +54,7 @@
     <section class="content-section" aria-labelledby="method-title">
       <h2 id="method-title">Method</h2>
       <a class="method-link" href="assets/media/method.png?v=ba91979ed5" aria-label="View the method diagram at full resolution">
-        <img class="method-image" src="assets/media/method.png?v=ba91979ed5" width="3000" height="1104" loading="lazy" decoding="async" alt="LucidLyra framework: a frozen camera-controlled video model and 2D teachers supervise a Gaussian decoder that predicts geometry, appearance, semantic features, and instance features.">
+        <img class="method-image" src="assets/media/method.webp?v=767c992412" srcset="assets/media/method-1200.webp?v=1b2cc425b1 1200w, assets/media/method-2000.webp?v=1cdd17dd7b 2000w, assets/media/method.webp?v=767c992412 3000w" sizes="(max-width: 600px) calc(100vw - 32px), (max-width: 1048px) calc(100vw - 48px), 1000px" width="3000" height="1104" loading="lazy" decoding="async" alt="LucidLyra framework: a frozen camera-controlled video model and 2D teachers supervise a Gaussian decoder that predicts geometry, appearance, semantic features, and instance features.">
       </a>
       <p class="method-caption">Given a single image, LucidLyra uses a frozen camera-controlled video model to generate multi-view latents. A Gaussian decoder combines these latents with camera rays and C-RADIO input image features, then predicts geometry, appearance, semantics, and instance embeddings through separate reconstruction and understanding heads. During training, frozen SAM/SAM2 and projected SigLIP2 teachers extract object tracks and language-aligned features from the generated videos. Reconstruction, semantic, and instance losses jointly train our 3DGS decoder without captured multi-view data or manual 3D annotations. Given video latents a single decoder pass produces a scene supporting novel-view rendering, open-vocabulary semantic segmentation, and instance clustering without per-scene optimization. For dynamic scenes, time encodings and query-frame features enable decoding a 3D scene state at a requested time from a monocular input video.</p>
     </section>
@@ -62,45 +62,45 @@
     <section id="static" class="content-section" data-gallery aria-labelledby="static-title">
       <h2 id="static-title">Generative Image-to-3D Reconstruction and Understanding</h2>
       <div class="thumbnails" role="group" aria-label="Static 3D Reconstruction and Understanding examples">
-        <button type="button" class="thumbnail" data-video="assets/media/static-03.mp4?v=c732015655" data-poster="assets/media/static-03.png?v=5ce4919590" aria-pressed="true" aria-controls="static-video" aria-label="Static 3D, scene set 1">
-          <img src="assets/media/static-03-thumb.webp?v=98dec3163c" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/static-03.mp4?v=c732015655" data-poster="assets/media/static-03.webp?v=deeb4dfb3f" aria-pressed="true" aria-controls="static-video" aria-label="Static 3D, scene set 1">
+          <img src="assets/media/static-03-thumb.webp?v=7557c930ec" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-01.mp4?v=2a183b25f1" data-poster="assets/media/static-01.png?v=6ec76aeb41" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 2">
-          <img src="assets/media/static-01-thumb.webp?v=27bcfc3ee7" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/static-01.mp4?v=2a183b25f1" data-poster="assets/media/static-01.webp?v=d3d7c97b32" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 2">
+          <img src="assets/media/static-01-thumb.webp?v=67e0f5063c" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-04.mp4?v=b16c1fc207" data-poster="assets/media/static-04.png?v=c8e51849fa" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 3">
-          <img src="assets/media/static-04-thumb.webp?v=7d142f1bb7" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/static-04.mp4?v=b16c1fc207" data-poster="assets/media/static-04.webp?v=fbb0351c91" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 3">
+          <img src="assets/media/static-04-thumb.webp?v=46f5de4b2d" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-02.mp4?v=0636f5cf0d" data-poster="assets/media/static-02.png?v=43ab9a0a16" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 4">
-          <img src="assets/media/static-02-thumb.webp?v=13793deba1" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/static-02.mp4?v=0636f5cf0d" data-poster="assets/media/static-02.webp?v=15fc071ccf" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 4">
+          <img src="assets/media/static-02-thumb.webp?v=1b43bf5925" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-05.mp4?v=22507cce11" data-poster="assets/media/static-05.png?v=8e354a6b09" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 5">
-          <img src="assets/media/static-05-thumb.webp?v=5e157a8264" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/static-05.mp4?v=22507cce11" data-poster="assets/media/static-05.webp?v=41567d96d4" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 5">
+          <img src="assets/media/static-05-thumb.webp?v=98abc6824d" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-07.mp4?v=510154a85a" data-poster="assets/media/static-07.png?v=496bb8d6bb" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 6">
-          <img src="assets/media/static-07-thumb.webp?v=cbdb2cef51" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/static-07.mp4?v=510154a85a" data-poster="assets/media/static-07.webp?v=004eaf6c96" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 6">
+          <img src="assets/media/static-07-thumb.webp?v=0782a4fadf" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-08.mp4?v=585b1d019d" data-poster="assets/media/static-08.png?v=001314942d" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 7">
-          <img src="assets/media/static-08-thumb.webp?v=1bc1317a26" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/static-08.mp4?v=585b1d019d" data-poster="assets/media/static-08.webp?v=9d87e6fbaa" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 7">
+          <img src="assets/media/static-08-thumb.webp?v=b0cf7a9b9c" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-09.mp4?v=e6ea874689" data-poster="assets/media/static-09.png?v=4dbc35cb68" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 8">
-          <img src="assets/media/static-09-thumb.webp?v=a33ab0509d" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/static-09.mp4?v=e6ea874689" data-poster="assets/media/static-09.webp?v=ee2a5c18ca" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 8">
+          <img src="assets/media/static-09-thumb.webp?v=bc974944d1" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-10.mp4?v=732cf37c85" data-poster="assets/media/static-10.png?v=1086a34067" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 9">
-          <img src="assets/media/static-10-thumb.webp?v=a3dcff8076" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/static-10.mp4?v=732cf37c85" data-poster="assets/media/static-10.webp?v=a8c41cc2d9" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 9">
+          <img src="assets/media/static-10-thumb.webp?v=4c2392a27f" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-11.mp4?v=3503cfc789" data-poster="assets/media/static-11.png?v=e968f76ced" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 10">
-          <img src="assets/media/static-11-thumb.webp?v=f0ba5d83f3" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/static-11.mp4?v=3503cfc789" data-poster="assets/media/static-11.webp?v=679d1a8771" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 10">
+          <img src="assets/media/static-11-thumb.webp?v=ec8e607cf6" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-12.mp4?v=77dfdac9f2" data-poster="assets/media/static-12.png?v=0ed68ccd42" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 11">
-          <img src="assets/media/static-12-thumb.webp?v=4a8f7c8eff" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/static-12.mp4?v=77dfdac9f2" data-poster="assets/media/static-12.webp?v=676e072f8a" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 11">
+          <img src="assets/media/static-12-thumb.webp?v=5339a768fc" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/static-06.mp4?v=bc77fb341d" data-poster="assets/media/static-06.png?v=8baf3969f3" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 12">
-          <img src="assets/media/static-06-thumb.webp?v=944c84efa4" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/static-06.mp4?v=bc77fb341d" data-poster="assets/media/static-06.webp?v=94bf052ceb" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 12">
+          <img src="assets/media/static-06-thumb.webp?v=6c953a8cd2" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
       </div>
       <figure>
-        <video id="static-video" data-player aria-describedby="static-caption" poster="assets/media/static-03.png?v=5ce4919590" width="1920" height="1760" controls muted loop playsinline preload="none" aria-label="Static 3D Reconstruction and Understanding">
+        <video id="static-video" data-player aria-describedby="static-caption" data-poster="assets/media/static-03.webp?v=deeb4dfb3f" width="1920" height="1760" controls muted loop playsinline preload="none" aria-label="Static 3D Reconstruction and Understanding">
           Your browser does not support HTML video.
         </video>
         <p class="video-error" data-video-error role="status" hidden></p>
@@ -111,21 +111,21 @@
     <section id="waymo" class="content-section" data-gallery aria-labelledby="waymo-title">
       <h2 id="waymo-title">Real-World Image-to-3D Reconstruction and Understanding on Waymo</h2>
       <div class="thumbnails" role="group" aria-label="Waymo Static 3D Results examples">
-        <button type="button" class="thumbnail" data-video="assets/media/waymo-02.mp4" data-poster="assets/media/waymo-02.png" aria-pressed="true" aria-controls="waymo-video" aria-label="Waymo static 3D, scene set 2">
-          <img src="assets/media/waymo-02-thumb.webp?v=1f9087d57f" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/waymo-02.mp4" data-poster="assets/media/waymo-02.webp?v=195ee2234e" aria-pressed="true" aria-controls="waymo-video" aria-label="Waymo static 3D, scene set 2">
+          <img src="assets/media/waymo-02-thumb.webp?v=9a9e036f3a" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/waymo-01.mp4" data-poster="assets/media/waymo-01.png" aria-pressed="false" aria-controls="waymo-video" aria-label="Waymo static 3D, scene set 1">
-          <img src="assets/media/waymo-01-thumb.webp?v=201b2f2eef" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/waymo-01.mp4" data-poster="assets/media/waymo-01.webp?v=0e8f7b0829" aria-pressed="false" aria-controls="waymo-video" aria-label="Waymo static 3D, scene set 1">
+          <img src="assets/media/waymo-01-thumb.webp?v=f8add658d7" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/waymo-03.mp4" data-poster="assets/media/waymo-03.png" aria-pressed="false" aria-controls="waymo-video" aria-label="Waymo static 3D, scene set 3">
-          <img src="assets/media/waymo-03-thumb.webp?v=ae04018ca1" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/waymo-03.mp4" data-poster="assets/media/waymo-03.webp?v=943c782361" aria-pressed="false" aria-controls="waymo-video" aria-label="Waymo static 3D, scene set 3">
+          <img src="assets/media/waymo-03-thumb.webp?v=57284e85c0" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/waymo-04.mp4" data-poster="assets/media/waymo-04.png" aria-pressed="false" aria-controls="waymo-video" aria-label="Waymo static 3D, scene set 4">
-          <img src="assets/media/waymo-04-thumb.webp?v=a01aa337ed" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/waymo-04.mp4" data-poster="assets/media/waymo-04.webp?v=ba394e925a" aria-pressed="false" aria-controls="waymo-video" aria-label="Waymo static 3D, scene set 4">
+          <img src="assets/media/waymo-04-thumb.webp?v=f2498ec34b" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
       </div>
       <figure>
-        <video id="waymo-video" data-player aria-describedby="waymo-caption" poster="assets/media/waymo-02.png" width="1920" height="1760" controls muted loop playsinline preload="none" aria-label="Waymo Static 3D Results">
+        <video id="waymo-video" data-player aria-describedby="waymo-caption" data-poster="assets/media/waymo-02.webp?v=195ee2234e" width="1920" height="1760" controls muted loop playsinline preload="none" aria-label="Waymo Static 3D Results">
           Your browser does not support HTML video.
         </video>
         <p class="video-error" data-video-error role="status" hidden></p>
@@ -136,21 +136,21 @@
     <section id="dynamic" class="content-section" data-gallery aria-labelledby="dynamic-title">
       <h2 id="dynamic-title">Generative Video-to-4D Reconstruction and Understanding</h2>
       <div class="thumbnails" role="group" aria-label="Dynamic 4D Reconstruction and Understanding examples">
-        <button type="button" class="thumbnail" data-video="assets/media/dynamic-03.mp4?v=6064fd8769" data-poster="assets/media/dynamic-03.png?v=f363554d77" aria-pressed="true" aria-controls="dynamic-video" aria-label="Humanoid painting, excavator and cheese, and bear playing guitar">
-          <img src="assets/media/dynamic-03-thumb.webp?v=acbd95ac4f" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/dynamic-03.mp4?v=6064fd8769" data-poster="assets/media/dynamic-03.webp?v=02494443a7" aria-pressed="true" aria-controls="dynamic-video" aria-label="Humanoid painting, excavator and cheese, and bear playing guitar">
+          <img src="assets/media/dynamic-03-thumb.webp?v=f84bbfe9fc" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/dynamic-04.mp4?v=dfc0e94c01" data-poster="assets/media/dynamic-04.png?v=0cc4eb7534" aria-pressed="false" aria-controls="dynamic-video" aria-label="Polar bear family, coffee pouring, and typing cat">
-          <img src="assets/media/dynamic-04-thumb.webp?v=366c11c535" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/dynamic-04.mp4?v=56024979b1" data-poster="assets/media/dynamic-04.webp?v=27eb428513" aria-pressed="false" aria-controls="dynamic-video" aria-label="Polar bear family, rabbit eating carrot, and typing cat">
+          <img src="assets/media/dynamic-04-thumb.webp?v=18421945ab" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/dynamic-01.mp4?v=6b7550b30d" data-poster="assets/media/dynamic-01.png?v=87dc5ea363" aria-pressed="false" aria-controls="dynamic-video" aria-label="Rocket liftoff, dachshund teatime, and horse grazing">
-          <img src="assets/media/dynamic-01-thumb.webp?v=4b538ae533" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/dynamic-01.mp4?v=6b7550b30d" data-poster="assets/media/dynamic-01.webp?v=de46c55e88" aria-pressed="false" aria-controls="dynamic-video" aria-label="Rocket liftoff, dachshund teatime, and horse grazing">
+          <img src="assets/media/dynamic-01-thumb.webp?v=e87fa39ca8" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/dynamic-02.mp4?v=e126e18bd1" data-poster="assets/media/dynamic-02.png?v=3c49d3b8ec" aria-pressed="false" aria-controls="dynamic-video" aria-label="Golden retriever paw, humanoid pushups, and watermelon impact">
-          <img src="assets/media/dynamic-02-thumb.webp?v=b9e195a855" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/dynamic-02.mp4?v=e126e18bd1" data-poster="assets/media/dynamic-02.webp?v=a2eefc0309" aria-pressed="false" aria-controls="dynamic-video" aria-label="Golden retriever paw, humanoid pushups, and watermelon impact">
+          <img src="assets/media/dynamic-02-thumb.webp?v=955aeb90ac" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
       </div>
       <figure>
-        <video id="dynamic-video" data-player aria-describedby="dynamic-caption" poster="assets/media/dynamic-03.png?v=f363554d77" width="1920" height="1760" controls muted loop playsinline preload="none" aria-label="Dynamic 4D Reconstruction and Understanding">
+        <video id="dynamic-video" data-player aria-describedby="dynamic-caption" data-poster="assets/media/dynamic-03.webp?v=02494443a7" width="1920" height="1760" controls muted loop playsinline preload="none" aria-label="Dynamic 4D Reconstruction and Understanding">
           Your browser does not support HTML video.
         </video>
         <p class="video-error" data-video-error role="status" hidden></p>
@@ -161,21 +161,21 @@
     <section id="simulation" class="content-section" data-gallery aria-labelledby="simulation-title">
       <h2 id="simulation-title">Application: Robot Simulation</h2>
       <div class="thumbnails" role="group" aria-label="Robot Simulation examples">
-        <button type="button" class="thumbnail" data-video="assets/media/simulation-01.mp4?v=d68b38201a" data-poster="assets/media/simulation-01.png?v=14f48218ae" aria-pressed="true" aria-controls="simulation-video" aria-label="Robot simulation in a coastal villa">
-          <img src="assets/media/simulation-01-thumb.webp?v=6bfb0a129c" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/simulation-01.mp4?v=d68b38201a" data-poster="assets/media/simulation-01.webp?v=6272e399db" aria-pressed="true" aria-controls="simulation-video" aria-label="Robot simulation in a coastal villa">
+          <img src="assets/media/simulation-01-thumb.webp?v=5a9ae65083" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/simulation-02.mp4?v=e8ea9c4980" data-poster="assets/media/simulation-02.png?v=782adeb542" aria-pressed="false" aria-controls="simulation-video" aria-label="Robot simulation in a warehouse">
-          <img src="assets/media/simulation-02-thumb.webp?v=046306fecc" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/simulation-02.mp4?v=e8ea9c4980" data-poster="assets/media/simulation-02.webp?v=a20a4b8bbf" aria-pressed="false" aria-controls="simulation-video" aria-label="Robot simulation in a warehouse">
+          <img src="assets/media/simulation-02-thumb.webp?v=59694334a1" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/simulation-03.mp4?v=9861d022db" data-poster="assets/media/simulation-03.png?v=523ae3532d" aria-pressed="false" aria-controls="simulation-video" aria-label="Robot simulation in an industrial interior">
-          <img src="assets/media/simulation-03-thumb.webp?v=dd70fa950c" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/simulation-03.mp4?v=9861d022db" data-poster="assets/media/simulation-03.webp?v=8e101f32e0" aria-pressed="false" aria-controls="simulation-video" aria-label="Robot simulation in an industrial interior">
+          <img src="assets/media/simulation-03-thumb.webp?v=f2b2be9f1f" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/simulation-04.mp4?v=2cffd24ac3" data-poster="assets/media/simulation-04.png?v=9e0e916ec9" aria-pressed="false" aria-controls="simulation-video" aria-label="Robot arm simulation in a kitchen">
-          <img src="assets/media/simulation-04-thumb.webp?v=db2b332db9" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/simulation-04.mp4?v=2cffd24ac3" data-poster="assets/media/simulation-04.webp?v=f44be0a0c8" aria-pressed="false" aria-controls="simulation-video" aria-label="Robot arm simulation in a kitchen">
+          <img src="assets/media/simulation-04-thumb.webp?v=b8dc1e1db5" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
       </div>
       <figure>
-        <video id="simulation-video" data-player aria-describedby="simulation-caption" poster="assets/media/simulation-01.png?v=14f48218ae" width="1920" height="1080" controls muted loop playsinline preload="none" aria-label="Robot Simulation">
+        <video id="simulation-video" data-player aria-describedby="simulation-caption" data-poster="assets/media/simulation-01.webp?v=6272e399db" width="1920" height="1080" controls muted loop playsinline preload="none" aria-label="Robot Simulation">
           Your browser does not support HTML video.
         </video>
         <p class="video-error" data-video-error role="status" hidden></p>
@@ -186,21 +186,21 @@
     <section id="editing" class="content-section" data-gallery aria-labelledby="editing-title">
       <h2 id="editing-title">Application: 3D Scene Editing</h2>
       <div class="thumbnails" role="group" aria-label="3D Scene Editing examples">
-        <button type="button" class="thumbnail" data-video="assets/media/editing-01.mp4?v=f7c8b72eba" data-poster="assets/media/editing-01.png?v=a3bf59970e" aria-pressed="true" aria-controls="editing-video" aria-label="Kitchen scene editing">
-          <img src="assets/media/editing-01-thumb.webp?v=7af0deb06a" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/editing-01.mp4?v=f7c8b72eba" data-poster="assets/media/editing-01.webp?v=0f5fe091d8" aria-pressed="true" aria-controls="editing-video" aria-label="Kitchen scene editing">
+          <img src="assets/media/editing-01-thumb.webp?v=0c12fb87f6" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/editing-02.mp4?v=b0eab2f2b9" data-poster="assets/media/editing-02.png?v=1c36a3e15c" aria-pressed="false" aria-controls="editing-video" aria-label="Living room scene editing">
-          <img src="assets/media/editing-02-thumb.webp?v=8c98a269c1" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/editing-02.mp4?v=b0eab2f2b9" data-poster="assets/media/editing-02.webp?v=ad020dbb12" aria-pressed="false" aria-controls="editing-video" aria-label="Living room scene editing">
+          <img src="assets/media/editing-02-thumb.webp?v=392f65c486" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/editing-04.mp4?v=f53bedf9ac" data-poster="assets/media/editing-04.png?v=91818d6d17" aria-pressed="false" aria-controls="editing-video" aria-label="Industrial interior scene editing">
-          <img src="assets/media/editing-04-thumb.webp?v=4551d0999d" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/editing-04.mp4?v=f53bedf9ac" data-poster="assets/media/editing-04.webp?v=2971dc0240" aria-pressed="false" aria-controls="editing-video" aria-label="Industrial interior scene editing">
+          <img src="assets/media/editing-04-thumb.webp?v=e2e612b480" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/editing-03.mp4?v=dce02e778a" data-poster="assets/media/editing-03.png?v=4681115f23" aria-pressed="false" aria-controls="editing-video" aria-label="Chateau scene editing">
-          <img src="assets/media/editing-03-thumb.webp?v=f5599807b0" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/editing-03.mp4?v=dce02e778a" data-poster="assets/media/editing-03.webp?v=51f527e791" aria-pressed="false" aria-controls="editing-video" aria-label="Chateau scene editing">
+          <img src="assets/media/editing-03-thumb.webp?v=b4db38a149" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
       </div>
       <figure>
-        <video id="editing-video" data-player aria-describedby="editing-caption" poster="assets/media/editing-01.png?v=a3bf59970e" width="1920" height="1056" controls muted loop playsinline preload="none" aria-label="3D Scene Editing">
+        <video id="editing-video" data-player aria-describedby="editing-caption" data-poster="assets/media/editing-01.webp?v=0f5fe091d8" width="1920" height="1056" controls muted loop playsinline preload="none" aria-label="3D Scene Editing">
           Your browser does not support HTML video.
         </video>
         <p class="video-error" data-video-error role="status" hidden></p>
@@ -211,21 +211,21 @@
     <section id="assets" class="content-section" data-gallery aria-labelledby="assets-title">
       <h2 id="assets-title">Application: 3D Asset Mining</h2>
       <div class="thumbnails" role="group" aria-label="3D Asset Mining examples">
-        <button type="button" class="thumbnail" data-video="assets/media/asset-01.mp4" data-poster="assets/media/asset-01.png" aria-pressed="true" aria-controls="assets-video" aria-label="Living room asset mining">
-          <img src="assets/media/asset-01-thumb.webp?v=cfb92e0702" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/asset-01.mp4" data-poster="assets/media/asset-01.webp?v=4e29272fa9" aria-pressed="true" aria-controls="assets-video" aria-label="Living room asset mining">
+          <img src="assets/media/asset-01-thumb.webp?v=d44f46ee39" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/asset-02.mp4" data-poster="assets/media/asset-02.png" aria-pressed="false" aria-controls="assets-video" aria-label="Utility room asset mining">
-          <img src="assets/media/asset-02-thumb.webp?v=a4974cd2fb" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/asset-02.mp4" data-poster="assets/media/asset-02.webp?v=8bfe175f54" aria-pressed="false" aria-controls="assets-video" aria-label="Utility room asset mining">
+          <img src="assets/media/asset-02-thumb.webp?v=d5e39cd945" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/asset-03.mp4" data-poster="assets/media/asset-03.png" aria-pressed="false" aria-controls="assets-video" aria-label="Playroom asset mining">
-          <img src="assets/media/asset-03-thumb.webp?v=8e6f32790a" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/asset-03.mp4" data-poster="assets/media/asset-03.webp?v=87179d0d62" aria-pressed="false" aria-controls="assets-video" aria-label="Playroom asset mining">
+          <img src="assets/media/asset-03-thumb.webp?v=71e95a4e3d" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/asset-04.mp4" data-poster="assets/media/asset-04.png" aria-pressed="false" aria-controls="assets-video" aria-label="Driveway asset mining">
-          <img src="assets/media/asset-04-thumb.webp?v=c221691bea" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/asset-04.mp4" data-poster="assets/media/asset-04.webp?v=e9ae012e67" aria-pressed="false" aria-controls="assets-video" aria-label="Driveway asset mining">
+          <img src="assets/media/asset-04-thumb.webp?v=ac36fa8c58" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
       </div>
       <figure>
-        <video id="assets-video" data-player aria-describedby="assets-caption" poster="assets/media/asset-01.png" width="1280" height="704" controls muted loop playsinline preload="none" aria-label="3D Asset Mining">
+        <video id="assets-video" data-player aria-describedby="assets-caption" data-poster="assets/media/asset-01.webp?v=4e29272fa9" width="1280" height="704" controls muted loop playsinline preload="none" aria-label="3D Asset Mining">
           Your browser does not support HTML video.
         </video>
         <p class="video-error" data-video-error role="status" hidden></p>
@@ -236,27 +236,27 @@
     <section id="comparison" class="content-section" data-gallery aria-labelledby="comparison-title">
       <h2 id="comparison-title">Baseline Comparison</h2>
       <div class="thumbnails" role="group" aria-label="Baseline comparison types">
-        <button type="button" class="thumbnail" data-video="assets/media/comparison-05.mp4?v=8d0fdac218" data-poster="assets/media/comparison-05.png?v=b9651725e6" aria-pressed="true" aria-controls="comparison-video" aria-label="Semantic comparison, scene set 3">
-          <img src="assets/media/comparison-05-thumb.webp?v=b1e3b0e78b" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/comparison-05.mp4?v=8d0fdac218" data-poster="assets/media/comparison-05.webp?v=4d634fa2e2" aria-pressed="true" aria-controls="comparison-video" aria-label="Semantic comparison, scene set 3">
+          <img src="assets/media/comparison-05-thumb.webp?v=ab4d208a57" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/comparison-06.mp4?v=dda52d705f" data-poster="assets/media/comparison-06.png?v=a791fb57d3" aria-pressed="false" aria-controls="comparison-video" aria-label="Instance comparison, scene set 3">
-          <img src="assets/media/comparison-06-thumb.webp?v=ec53077f61" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/comparison-06.mp4?v=dda52d705f" data-poster="assets/media/comparison-06.webp?v=6d272c882b" aria-pressed="false" aria-controls="comparison-video" aria-label="Instance comparison, scene set 3">
+          <img src="assets/media/comparison-06-thumb.webp?v=e56aac2bd4" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/comparison-01.mp4?v=f9498ba05e" data-poster="assets/media/comparison-01.png?v=95b3d6c54f" aria-pressed="false" aria-controls="comparison-video" aria-label="Semantic comparison">
-          <img src="assets/media/comparison-01-thumb.webp?v=de9bbcbcc4" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/comparison-01.mp4?v=f9498ba05e" data-poster="assets/media/comparison-01.webp?v=3e0c60021a" aria-pressed="false" aria-controls="comparison-video" aria-label="Semantic comparison">
+          <img src="assets/media/comparison-01-thumb.webp?v=9bef0a6ca3" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/comparison-02.mp4?v=d34bed50c4" data-poster="assets/media/comparison-02.png?v=73ec5022ef" aria-pressed="false" aria-controls="comparison-video" aria-label="Instance comparison">
-          <img src="assets/media/comparison-02-thumb.webp?v=1c20d02f59" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/comparison-02.mp4?v=d34bed50c4" data-poster="assets/media/comparison-02.webp?v=3f2db4ab2a" aria-pressed="false" aria-controls="comparison-video" aria-label="Instance comparison">
+          <img src="assets/media/comparison-02-thumb.webp?v=a7051b7b9c" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/comparison-03.mp4?v=1141e3fc56" data-poster="assets/media/comparison-03.png?v=15eeff885f" aria-pressed="false" aria-controls="comparison-video" aria-label="Semantic comparison, scene set 2">
-          <img src="assets/media/comparison-03-thumb.webp?v=5668d8dcaf" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/comparison-03.mp4?v=1141e3fc56" data-poster="assets/media/comparison-03.webp?v=f4cd2e727f" aria-pressed="false" aria-controls="comparison-video" aria-label="Semantic comparison, scene set 2">
+          <img src="assets/media/comparison-03-thumb.webp?v=3e196ae65c" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
-        <button type="button" class="thumbnail" data-video="assets/media/comparison-04.mp4?v=72c8a05f51" data-poster="assets/media/comparison-04.png?v=d3931b9df1" aria-pressed="false" aria-controls="comparison-video" aria-label="Instance comparison, scene set 2">
-          <img src="assets/media/comparison-04-thumb.webp?v=2ced465e5b" alt="" width="80" height="68" loading="lazy" decoding="async">
+        <button type="button" class="thumbnail" data-video="assets/media/comparison-04.mp4?v=72c8a05f51" data-poster="assets/media/comparison-04.webp?v=bba24c89da" aria-pressed="false" aria-controls="comparison-video" aria-label="Instance comparison, scene set 2">
+          <img src="assets/media/comparison-04-thumb.webp?v=f32f624094" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
       </div>
       <figure>
-        <video id="comparison-video" data-player aria-describedby="comparison-caption" poster="assets/media/comparison-05.png?v=b9651725e6" width="1080" height="1584" controls muted loop playsinline preload="none" aria-label="Semantic comparison, scene set 3">
+        <video id="comparison-video" data-player aria-describedby="comparison-caption" data-poster="assets/media/comparison-05.webp?v=4d634fa2e2" width="1080" height="1584" controls muted loop playsinline preload="none" aria-label="Semantic comparison, scene set 3">
           Your browser does not support HTML video.
         </video>
         <p class="video-error" data-video-error role="status" hidden></p>

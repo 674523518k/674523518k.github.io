@@ -11,7 +11,15 @@
     }
   }
 
+  function loadPoster(player) {
+    const poster = player.video.dataset.poster;
+    if (poster && player.video.getAttribute('poster') !== poster) {
+      player.video.poster = poster;
+    }
+  }
+
   function load(player) {
+    loadPoster(player);
     const source = player.video.dataset.src;
     if (!source || player.loadedSource === source) return;
     player.loadedSource = source;
@@ -58,7 +66,8 @@
     player.failed = false;
     player.selected = button;
     player.video.dataset.src = button.dataset.video;
-    player.video.poster = button.dataset.poster;
+    player.video.dataset.poster = button.dataset.poster;
+    if (player.posterVisible) loadPoster(player);
     player.video.setAttribute('aria-label', button.getAttribute('aria-label'));
     if (player.error) player.error.hidden = true;
 
@@ -79,6 +88,7 @@
       error: block.querySelector('[data-video-error]'),
       selected: null,
       visible: false,
+      posterVisible: video.hasAttribute('poster'),
       userPaused: false,
       expectedPause: false,
       failed: false,
@@ -136,6 +146,19 @@
   }
 
   const byVideo = new Map(players.map((player) => [player.video, player]));
+  // Posters have their own nearby-viewport budget; video downloads still start
+  // only when the player is visible.
+  const posterObserver = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      const player = byVideo.get(entry.target);
+      player.posterVisible = true;
+      loadPoster(player);
+      posterObserver.unobserve(player.video);
+    }
+  }, { rootMargin: '300px 0px' });
+  for (const player of players) posterObserver.observe(player.video);
+
   const observer = new IntersectionObserver((entries) => {
     for (const entry of entries) {
       const player = byVideo.get(entry.target);
