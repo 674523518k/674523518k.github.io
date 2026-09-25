@@ -59,11 +59,10 @@
       <p class="method-caption">Given a single image, LucidLyra uses a frozen camera-controlled video model to generate multi-view latents. A Gaussian decoder combines these latents with camera rays and C-RADIO input image features, then predicts geometry, appearance, semantics, and instance embeddings through separate reconstruction and understanding heads. During training, frozen SAM/SAM2 and projected SigLIP2 teachers extract object tracks and language-aligned features from the generated videos. Reconstruction, semantic, and instance losses jointly train our 3DGS decoder without captured multi-view data or manual 3D annotations. Given video latents a single decoder pass produces a scene supporting novel-view rendering, open-vocabulary semantic segmentation, and instance clustering without per-scene optimization. For dynamic scenes, time encodings and query-frame features enable decoding a 3D scene state at a requested time from a monocular input video.</p>
     </section>
 
-
     <section id="static" class="content-section" data-gallery aria-labelledby="static-title">
       <h2 id="static-title">Generative Image-to-3D Reconstruction and Understanding</h2>
       <div class="thumbnails" role="group" aria-label="Static 3D Reconstruction and Understanding examples">
-        <button type="button" class="thumbnail is-selected" data-video="assets/media/static-03.mp4?v=c732015655" data-poster="assets/media/static-03.png?v=5ce4919590" aria-pressed="true" aria-controls="static-video" aria-label="Static 3D, scene set 1">
+        <button type="button" class="thumbnail" data-video="assets/media/static-03.mp4?v=c732015655" data-poster="assets/media/static-03.png?v=5ce4919590" aria-pressed="true" aria-controls="static-video" aria-label="Static 3D, scene set 1">
           <img src="assets/media/static-03-thumb.webp?v=98dec3163c" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
         <button type="button" class="thumbnail" data-video="assets/media/static-01.mp4?v=2a183b25f1" data-poster="assets/media/static-01.png?v=6ec76aeb41" aria-pressed="false" aria-controls="static-video" aria-label="Static 3D, scene set 2">
@@ -112,7 +111,7 @@
     <section id="waymo" class="content-section" data-gallery aria-labelledby="waymo-title">
       <h2 id="waymo-title">Real-World Image-to-3D Reconstruction and Understanding on Waymo</h2>
       <div class="thumbnails" role="group" aria-label="Waymo Static 3D Results examples">
-        <button type="button" class="thumbnail is-selected" data-video="assets/media/waymo-02.mp4" data-poster="assets/media/waymo-02.png" aria-pressed="true" aria-controls="waymo-video" aria-label="Waymo static 3D, scene set 2">
+        <button type="button" class="thumbnail" data-video="assets/media/waymo-02.mp4" data-poster="assets/media/waymo-02.png" aria-pressed="true" aria-controls="waymo-video" aria-label="Waymo static 3D, scene set 2">
           <img src="assets/media/waymo-02-thumb.webp?v=1f9087d57f" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
         <button type="button" class="thumbnail" data-video="assets/media/waymo-01.mp4" data-poster="assets/media/waymo-01.png" aria-pressed="false" aria-controls="waymo-video" aria-label="Waymo static 3D, scene set 1">
@@ -137,7 +136,7 @@
     <section id="dynamic" class="content-section" data-gallery aria-labelledby="dynamic-title">
       <h2 id="dynamic-title">Generative Video-to-4D Reconstruction and Understanding</h2>
       <div class="thumbnails" role="group" aria-label="Dynamic 4D Reconstruction and Understanding examples">
-        <button type="button" class="thumbnail is-selected" data-video="assets/media/dynamic-03.mp4?v=6064fd8769" data-poster="assets/media/dynamic-03.png?v=f363554d77" aria-pressed="true" aria-controls="dynamic-video" aria-label="Humanoid painting, excavator and cheese, and bear playing guitar">
+        <button type="button" class="thumbnail" data-video="assets/media/dynamic-03.mp4?v=6064fd8769" data-poster="assets/media/dynamic-03.png?v=f363554d77" aria-pressed="true" aria-controls="dynamic-video" aria-label="Humanoid painting, excavator and cheese, and bear playing guitar">
           <img src="assets/media/dynamic-03-thumb.webp?v=acbd95ac4f" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
         <button type="button" class="thumbnail" data-video="assets/media/dynamic-04.mp4?v=dfc0e94c01" data-poster="assets/media/dynamic-04.png?v=0cc4eb7534" aria-pressed="false" aria-controls="dynamic-video" aria-label="Polar bear family, coffee pouring, and typing cat">
@@ -162,7 +161,7 @@
     <section id="simulation" class="content-section" data-gallery aria-labelledby="simulation-title">
       <h2 id="simulation-title">Application: Robot Simulation</h2>
       <div class="thumbnails" role="group" aria-label="Robot Simulation examples">
-        <button type="button" class="thumbnail is-selected" data-video="assets/media/simulation-01.mp4?v=d68b38201a" data-poster="assets/media/simulation-01.png?v=14f48218ae" aria-pressed="true" aria-controls="simulation-video" aria-label="Robot simulation in a coastal villa">
+        <button type="button" class="thumbnail" data-video="assets/media/simulation-01.mp4?v=d68b38201a" data-poster="assets/media/simulation-01.png?v=14f48218ae" aria-pressed="true" aria-controls="simulation-video" aria-label="Robot simulation in a coastal villa">
           <img src="assets/media/simulation-01-thumb.webp?v=6bfb0a129c" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
         <button type="button" class="thumbnail" data-video="assets/media/simulation-02.mp4?v=e8ea9c4980" data-poster="assets/media/simulation-02.png?v=782adeb542" aria-pressed="false" aria-controls="simulation-video" aria-label="Robot simulation in a warehouse">
@@ -187,7 +186,7 @@
     <section id="editing" class="content-section" data-gallery aria-labelledby="editing-title">
       <h2 id="editing-title">Application: 3D Scene Editing</h2>
       <div class="thumbnails" role="group" aria-label="3D Scene Editing examples">
-        <button type="button" class="thumbnail is-selected" data-video="assets/media/editing-01.mp4?v=f7c8b72eba" data-poster="assets/media/editing-01.png?v=a3bf59970e" aria-pressed="true" aria-controls="editing-video" aria-label="Kitchen scene editing">
+        <button type="button" class="thumbnail" data-video="assets/media/editing-01.mp4?v=f7c8b72eba" data-poster="assets/media/editing-01.png?v=a3bf59970e" aria-pressed="true" aria-controls="editing-video" aria-label="Kitchen scene editing">
           <img src="assets/media/editing-01-thumb.webp?v=7af0deb06a" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
         <button type="button" class="thumbnail" data-video="assets/media/editing-02.mp4?v=b0eab2f2b9" data-poster="assets/media/editing-02.png?v=1c36a3e15c" aria-pressed="false" aria-controls="editing-video" aria-label="Living room scene editing">
@@ -212,7 +211,7 @@
     <section id="assets" class="content-section" data-gallery aria-labelledby="assets-title">
       <h2 id="assets-title">Application: 3D Asset Mining</h2>
       <div class="thumbnails" role="group" aria-label="3D Asset Mining examples">
-        <button type="button" class="thumbnail is-selected" data-video="assets/media/asset-01.mp4" data-poster="assets/media/asset-01.png" aria-pressed="true" aria-controls="assets-video" aria-label="Living room asset mining">
+        <button type="button" class="thumbnail" data-video="assets/media/asset-01.mp4" data-poster="assets/media/asset-01.png" aria-pressed="true" aria-controls="assets-video" aria-label="Living room asset mining">
           <img src="assets/media/asset-01-thumb.webp?v=cfb92e0702" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
         <button type="button" class="thumbnail" data-video="assets/media/asset-02.mp4" data-poster="assets/media/asset-02.png" aria-pressed="false" aria-controls="assets-video" aria-label="Utility room asset mining">
@@ -237,7 +236,7 @@
     <section id="comparison" class="content-section" data-gallery aria-labelledby="comparison-title">
       <h2 id="comparison-title">Baseline Comparison</h2>
       <div class="thumbnails" role="group" aria-label="Baseline comparison types">
-        <button type="button" class="thumbnail is-selected" data-video="assets/media/comparison-05.mp4?v=8d0fdac218" data-poster="assets/media/comparison-05.png?v=b9651725e6" aria-pressed="true" aria-controls="comparison-video" aria-label="Semantic comparison, scene set 3">
+        <button type="button" class="thumbnail" data-video="assets/media/comparison-05.mp4?v=8d0fdac218" data-poster="assets/media/comparison-05.png?v=b9651725e6" aria-pressed="true" aria-controls="comparison-video" aria-label="Semantic comparison, scene set 3">
           <img src="assets/media/comparison-05-thumb.webp?v=b1e3b0e78b" alt="" width="80" height="68" loading="lazy" decoding="async">
         </button>
         <button type="button" class="thumbnail" data-video="assets/media/comparison-06.mp4?v=dda52d705f" data-poster="assets/media/comparison-06.png?v=a791fb57d3" aria-pressed="false" aria-controls="comparison-video" aria-label="Instance comparison, scene set 3">

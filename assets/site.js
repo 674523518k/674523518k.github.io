@@ -6,7 +6,6 @@
 
   function pause(player) {
     if (!player.video.paused) {
-      // Native pause events are asynchronous, including pauses initiated here.
       player.expectedPause = true;
       player.video.pause();
     }
@@ -42,9 +41,7 @@
     player.video.muted = true;
     player.video.play().then(() => {
       if (attempt.revision === player.revision && !shouldPlay(player)) pause(player);
-    }).catch(() => {
-      // Autoplay restrictions and source changes leave native controls usable.
-    }).finally(() => {
+    }).catch(() => {}).finally(() => {
       if (player.pendingPlay === attempt) {
         player.pendingPlay = null;
         if (attempt.recheck) update(player);
@@ -67,14 +64,9 @@
 
     for (const thumbnail of player.buttons) {
       const selected = thumbnail === button;
-      thumbnail.classList.toggle('is-selected', selected);
       thumbnail.setAttribute('aria-pressed', String(selected));
     }
-
-    // Reset even when several logical slots share the same placeholder file.
     player.loadedSource = null;
-    player.video.removeAttribute('src');
-    player.video.load();
     update(player);
   }
 
@@ -109,11 +101,7 @@
       if (!player.visible || document.hidden) pause(player);
     });
     video.addEventListener('loadedmetadata', () => {
-      // load() can discard a queued pause event from the preceding clip.
       player.expectedPause = false;
-      if (video.videoWidth && video.videoHeight) {
-        video.style.aspectRatio = `${video.videoWidth} / ${video.videoHeight}`;
-      }
     });
     video.addEventListener('error', () => {
       if (!video.getAttribute('src')) return;
@@ -147,24 +135,15 @@
     }
   }
 
-  if ('IntersectionObserver' in window) {
-    const byVideo = new Map(players.map((player) => [player.video, player]));
-    const observer = new IntersectionObserver((entries) => {
-      for (const entry of entries) {
-        const player = byVideo.get(entry.target);
-        player.visible = entry.isIntersecting && entry.intersectionRatio >= 0.15;
-        update(player);
-      }
-    }, { threshold: [0, 0.15] });
-    for (const player of players) observer.observe(player.video);
-  } else {
-    // Older browsers still offer native playback without eager media loading.
-    for (const player of players) {
-      player.visible = true;
-      player.userPaused = true;
-      load(player);
+  const byVideo = new Map(players.map((player) => [player.video, player]));
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      const player = byVideo.get(entry.target);
+      player.visible = entry.isIntersecting && entry.intersectionRatio >= 0.15;
+      update(player);
     }
-  }
+  }, { threshold: [0, 0.15] });
+  for (const player of players) observer.observe(player.video);
 
   document.addEventListener('visibilitychange', () => players.forEach(update));
   reducedMotion.addEventListener('change', () => {
