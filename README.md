@@ -10,7 +10,7 @@ Use silent H.264 MP4s with fast-start enabled. Keep existing video resolution
 and frame rate; current gallery videos are already efficiently encoded.
 Use full-resolution WebP posters (quality 85) and WebP thumbnails (quality 50)
 sized for 80x68 CSS pixels at 2x density, preserving aspect ratio. Generate
-these from the source PNGs, not previously compressed thumbnails.
+these from original images kept outside this repository.
 Gallery posters use `data-poster` and load within 300 pixels of the viewport;
 videos retain `preload="none"` and load when visible. Keep the teaser poster
 eager and the method diagram lossless, with responsive WebP sizes.
